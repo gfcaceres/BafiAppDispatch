@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE orion-application PUBLIC "-//Evermind//DTD J2EE Application runtime 1.2//EN" "http://xmlns.oracle.com/ias/dtds/orion-application.dtd">
+<orion-application>
+  <ejb-module path="file:/C:/Karen/Fuentes/Despacho en Tienda/AppDispatch/Model/classes/"/>
+  <web-module id="AppDispatch-View-webapp" path="C:\Karen\Fuentes\Despacho en Tienda\AppDispatch\View\public_html"/>
+  <library path="C:\Karen\Fuentes\Despacho en Tienda\AppDispatch\Model\classes">jdev-generated</library>
+  <library path="C:\Karen\Fuentes\Despacho en Tienda\LIBRERIAS\apache-jar\commons-beanutils-1.7.0.jar">jdev-generated</library>
+  <library path="C:\Karen\Fuentes\Despacho en Tienda\LIBRERIAS\apache-jar\commons-collections-3.1.jar">jdev-generated</library>
+  <library path="C:\Karen\Fuentes\Despacho en Tienda\LIBRERIAS\apache-jar\commons-fileupload.jar">jdev-generated</library>
+  <library path="C:\Karen\Fuentes\Despacho en Tienda\LIBRERIAS\apache-jar\commons-io-1.4.jar">jdev-generated</library>
+  <library path="C:\Karen\Fuentes\Despacho en Tienda\LIBRERIAS\apache-jar\commons-lang-2.1.jar">jdev-generated</library>
+  <library path="C:\Karen\Fuentes\Despacho en Tienda\LIBRERIAS\apache-jar\commons-logging-1.0.4.jar">jdev-generated</library>
+  <library path="C:\Karen\Fuentes\Despacho en Tienda\LIBRERIAS\log4j-jar\log4j-1.2.11.jar">jdev-generated</library>
+  <log>
+    <file path="AppDispatch-oc4j-app.log"/>
+  </log>
+  <jazn provider="XML" location="AppDispatch-jazn-data.xml" default-realm="jazn.com"/>
+  <data-sources path="Model/src/META-INF/data-sources.xml"/>
+</orion-application>

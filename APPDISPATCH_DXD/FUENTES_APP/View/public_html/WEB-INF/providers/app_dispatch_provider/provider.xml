@@ -1,0 +1,336 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<?providerDefinition version="3.1"?> 
+<provider class="oracle.portal.provider.v2.DefaultProviderDefinition">
+   <session>true</session>
+   <passAllUrlParams>true</passAllUrlParams>
+   <portlet class="oracle.portal.provider.v2.DefaultPortletDefinition">
+      <id>1</id>
+      <name>JP_SESSION</name>
+      <title>JP_SESSION</title>
+      <description>JP_SESSION</description>
+      <timeout>40</timeout>
+      <showEditToPublic>false</showEditToPublic>
+      <hasAbout>false</hasAbout>
+      <showEdit>false</showEdit>
+      <hasHelp>false</hasHelp>
+      <showEditDefault>false</showEditDefault>
+      <showDetails>false</showDetails>
+      <inputParameter class="oracle.portal.provider.v2.DefaultParameterDefinition">
+         <name>an_rolid</name>
+         <displayName>an_rolid</displayName>
+         <description>desc0</description>
+      </inputParameter>
+      <renderer class="oracle.portal.provider.v2.render.RenderManager">
+         <renderContainer>true</renderContainer>
+         <renderCustomize>true</renderCustomize>
+         <autoRedirect>true</autoRedirect>
+         <contentType>text/html</contentType>
+         <showPage class="oracle.portal.provider.v2.render.http.ResourceRenderer">
+            <resourcePath>/pages/JP_SESSION/JP_SESSION_ShowPage.jsp</resourcePath>
+         </showPage>
+      </renderer>
+      <securityManager class="oracle.portal.provider.v2.security.AuthLevelSecurityManager">
+         <securityLevel>weak</securityLevel>
+      </securityManager>
+   </portlet>
+   <portlet class="oracle.portal.provider.v2.DefaultPortletDefinition">
+      <id>5</id>
+      <name>JP_ATTEND_REQUEST_LIST_STORE</name>
+      <title>JP_ATTEND_REQUEST_LIST_STORE</title>
+      <description>JP_ATTEND_REQUEST_LIST_STORE</description>
+      <timeout>40</timeout>
+      <showEditToPublic>false</showEditToPublic>
+      <hasAbout>false</hasAbout>
+      <showEdit>false</showEdit>
+      <hasHelp>false</hasHelp>
+      <showEditDefault>false</showEditDefault>
+      <showDetails>false</showDetails>
+      <renderer class="oracle.portal.provider.v2.render.RenderManager">
+         <renderContainer>true</renderContainer>
+         <renderCustomize>true</renderCustomize>
+         <autoRedirect>true</autoRedirect>
+         <contentType>text/html</contentType>
+         <showPage class="oracle.portal.provider.v2.render.http.ResourceRenderer">
+            <resourcePath>/pages/JP_ATTEND_REQUEST_LIST_STORE/JP_ATTEND_REQUEST_LIST_ShowPage.jsp</resourcePath>
+         </showPage>
+      </renderer>
+      <securityManager class="oracle.portal.provider.v2.security.AuthLevelSecurityManager">
+         <securityLevel>weak</securityLevel>
+      </securityManager>
+   </portlet>
+   <portlet class="oracle.portal.provider.v2.DefaultPortletDefinition">
+      <id>6</id>
+      <name>JP_ATTEND_REQUEST_STORE</name>
+      <title>JP_ATTEND_REQUEST_STORE</title>
+      <description>JP_ATTEND_REQUEST_STORE</description>
+      <timeout>40</timeout>
+      <showEditToPublic>false</showEditToPublic>
+      <hasAbout>false</hasAbout>
+      <showEdit>false</showEdit>
+      <hasHelp>false</hasHelp>
+      <showEditDefault>false</showEditDefault>
+      <showDetails>false</showDetails>
+      <renderer class="oracle.portal.provider.v2.render.RenderManager">
+         <renderContainer>true</renderContainer>
+         <renderCustomize>true</renderCustomize>
+         <autoRedirect>true</autoRedirect>
+         <contentType>text/html</contentType>
+         <showPage class="oracle.portal.provider.v2.render.http.ResourceRenderer">
+            <resourcePath>/pages/JP_ATTEND_REQUEST_STORE/JP_ATTEND_REQUEST_STORE_ShowPage.jsp</resourcePath>
+         </showPage>
+      </renderer>
+      <securityManager class="oracle.portal.provider.v2.security.AuthLevelSecurityManager">
+         <securityLevel>weak</securityLevel>
+      </securityManager>
+   </portlet>
+   <portlet class="oracle.portal.provider.v2.DefaultPortletDefinition">
+      <id>7</id>
+      <name>Atencion de Solicitudes a Almacén</name>
+      <title>Atencion de Solicitudes a Almacén</title>
+      <description>Atención de Solicitudes del Operador Logistico</description>
+      <timeout>40</timeout>
+      <showEditToPublic>false</showEditToPublic>
+      <hasAbout>false</hasAbout>
+      <showEdit>false</showEdit>
+      <hasHelp>false</hasHelp>
+      <showEditDefault>false</showEditDefault>
+      <showDetails>false</showDetails>
+      <renderer class="oracle.portal.provider.v2.render.RenderManager">
+         <renderContainer>true</renderContainer>
+         <renderCustomize>true</renderCustomize>
+         <autoRedirect>true</autoRedirect>
+         <contentType>text/html</contentType>
+         <showPage class="oracle.portal.provider.v2.render.http.ResourceRenderer">
+            <resourcePath>/pages/JP_DETAIL_REQUEST_STORE/JP_DETAIL_REQUEST_ShowPage.jsp</resourcePath>
+         </showPage>
+      </renderer>
+      <securityManager class="oracle.portal.provider.v2.security.AuthLevelSecurityManager">
+         <securityLevel>weak</securityLevel>
+      </securityManager>
+   </portlet>
+   <portlet class="oracle.portal.provider.v2.DefaultPortletDefinition">
+      <id>9</id>
+      <name>Solicitud Manual a Almacén</name>
+      <title>Solicitud Manual a Almacén</title>
+      <description>Creación Manual de una Solicitud</description>
+      <timeout>40</timeout>
+      <showEditToPublic>false</showEditToPublic>
+      <hasAbout>false</hasAbout>
+      <showEdit>false</showEdit>
+      <hasHelp>false</hasHelp>
+      <showEditDefault>false</showEditDefault>
+      <showDetails>false</showDetails>
+      <renderer class="oracle.portal.provider.v2.render.RenderManager">
+         <renderContainer>true</renderContainer>
+         <renderCustomize>true</renderCustomize>
+         <autoRedirect>true</autoRedirect>
+         <contentType>text/html</contentType>
+         <showPage class="oracle.portal.provider.v2.render.http.ResourceRenderer">
+            <resourcePath>/pages/JP_MANUAL_REQUEST_STORE/JP_MANUAL_REQUEST_STORE_ShowPage.jsp</resourcePath>
+         </showPage>
+      </renderer>
+      <securityManager class="oracle.portal.provider.v2.security.AuthLevelSecurityManager">
+         <securityLevel>weak</securityLevel>
+      </securityManager>
+   </portlet>
+   <portlet class="oracle.portal.provider.v2.DefaultPortletDefinition">
+      <id>10</id>
+      <name>Búsqueda - Solicitudes a Almacén</name>
+      <title>Búsqueda - Solicitudes a Almacén</title>
+      <description>Listado de solicitudes a travÃ©s de la Búsqueda</description>
+      <timeout>40</timeout>
+      <showEditToPublic>false</showEditToPublic>
+      <hasAbout>false</hasAbout>
+      <showEdit>false</showEdit>
+      <hasHelp>false</hasHelp>
+      <showEditDefault>false</showEditDefault>
+      <showDetails>false</showDetails>
+      <renderer class="oracle.portal.provider.v2.render.RenderManager">
+         <renderContainer>true</renderContainer>
+         <renderCustomize>true</renderCustomize>
+         <autoRedirect>true</autoRedirect>
+         <contentType>text/html</contentType>
+         <showPage class="oracle.portal.provider.v2.render.http.ResourceRenderer">
+            <resourcePath>/pages/JP_SEARCH_REQUEST_STORE/JP_OL_REQUEST_LIST_ShowPage.jsp</resourcePath>
+         </showPage>
+      </renderer>
+      <securityManager class="oracle.portal.provider.v2.security.AuthLevelSecurityManager">
+         <securityLevel>weak</securityLevel>
+      </securityManager>
+   </portlet>
+   <portlet class="oracle.portal.provider.v2.DefaultPortletDefinition">
+      <id>14</id>
+      <name>Solicitudes a Almacén</name>
+      <title>Solicitudes a Almacén</title>
+      <description>Pantalla de bÃºqueda de solicitudes del operador logistico</description>
+      <timeout>40</timeout>
+      <showEditToPublic>false</showEditToPublic>
+      <hasAbout>false</hasAbout>
+      <showEdit>false</showEdit>
+      <hasHelp>false</hasHelp>
+      <showEditDefault>false</showEditDefault>
+      <showDetails>false</showDetails>
+      <renderer class="oracle.portal.provider.v2.render.RenderManager">
+         <renderContainer>true</renderContainer>
+         <renderCustomize>true</renderCustomize>
+         <autoRedirect>true</autoRedirect>
+         <contentType>text/html</contentType>
+         <showPage class="oracle.portal.provider.v2.render.http.ResourceRenderer">
+            <resourcePath>/pages/JP_SEARCH_REQUEST_STORE/JP_SEARCH_REQUEST_STORE_ShowPage.jsp</resourcePath>
+         </showPage>
+      </renderer>
+      <securityManager class="oracle.portal.provider.v2.security.AuthLevelSecurityManager">
+         <securityLevel>weak</securityLevel>
+      </securityManager>
+   </portlet>
+   <portlet class="oracle.portal.provider.v2.DefaultPortletDefinition">
+      <id>15</id>
+      <name>Solicitudes a Almacén - Atención</name>
+      <title>Solicitudes a Almacén - Atención</title>
+      <description>Listado de solicitudes pendientes de Atender</description>
+      <timeout>40</timeout>
+      <showEditToPublic>false</showEditToPublic>
+      <hasAbout>false</hasAbout>
+      <showEdit>false</showEdit>
+      <hasHelp>false</hasHelp>
+      <showEditDefault>false</showEditDefault>
+      <showDetails>false</showDetails>
+      <renderer class="oracle.portal.provider.v2.render.RenderManager">
+         <renderContainer>true</renderContainer>
+         <renderCustomize>true</renderCustomize>
+         <autoRedirect>true</autoRedirect>
+         <contentType>text/html</contentType>
+         <showPage class="oracle.portal.provider.v2.render.http.ResourceRenderer">
+            <resourcePath>/pages/JP_SEARCH_REQUEST_STORE/JP_OL_REQUEST_LIST_ShowPage.jsp</resourcePath>
+         </showPage>
+      </renderer>
+      <securityManager class="oracle.portal.provider.v2.security.AuthLevelSecurityManager">
+         <securityLevel>weak</securityLevel>
+      </securityManager>
+   </portlet>
+   <portlet class="oracle.portal.provider.v2.DefaultPortletDefinition">
+      <id>16</id>
+      <name>Exportar Solicitudes de Almacén</name>
+      <title>Exportar Solicitudes de Almacén</title>
+      <description>Funcionalidad para exportar innformaciÃ³n de la solicitud a excel</description>
+      <timeout>40</timeout>
+      <showEditToPublic>false</showEditToPublic>
+      <hasAbout>false</hasAbout>
+      <showEdit>false</showEdit>
+      <hasHelp>false</hasHelp>
+      <showEditDefault>false</showEditDefault>
+      <showDetails>false</showDetails>
+      <renderer class="oracle.portal.provider.v2.render.RenderManager">
+         <renderContainer>true</renderContainer>
+         <renderCustomize>true</renderCustomize>
+         <autoRedirect>true</autoRedirect>
+         <contentType>text/html</contentType>
+         <showPage class="oracle.portal.provider.v2.render.http.ResourceRenderer">
+            <resourcePath>/pages/JP_SEARCH_REQUEST_STORE/JP_EXPORTAR_EXCEL_REQUEST.jsp</resourcePath>
+         </showPage>
+      </renderer>
+      <securityManager class="oracle.portal.provider.v2.security.AuthLevelSecurityManager">
+         <securityLevel>weak</securityLevel>
+      </securityManager>
+   </portlet>
+   <portlet class="oracle.portal.provider.v2.DefaultPortletDefinition">
+      <id>17</id>
+      <name>Solicitudes a Almacén - Atención TDE</name>
+      <title>Solicitudes a Almacén - Atención TDE</title>
+      <description>Listado de solicitudes pendientes de Atender TDE</description>
+      <timeout>40</timeout>
+      <showEditToPublic>false</showEditToPublic>
+      <hasAbout>false</hasAbout>
+      <showEdit>false</showEdit>
+      <hasHelp>false</hasHelp>
+      <showEditDefault>false</showEditDefault>
+      <showDetails>false</showDetails>
+      <renderer class="oracle.portal.provider.v2.render.RenderManager">
+         <renderContainer>true</renderContainer>
+         <renderCustomize>true</renderCustomize>
+         <autoRedirect>true</autoRedirect>
+         <contentType>text/html</contentType>
+         <showPage class="oracle.portal.provider.v2.render.http.ResourceRenderer">
+            <resourcePath>/pages/TDE/JP_SEARCH_REQUEST_STORE/JP_OL_REQUEST_LIST_ShowPage.jsp</resourcePath>
+         </showPage>
+      </renderer>
+      <securityManager class="oracle.portal.provider.v2.security.AuthLevelSecurityManager">
+         <securityLevel>weak</securityLevel>
+      </securityManager>
+   </portlet>
+   <portlet class="oracle.portal.provider.v2.DefaultPortletDefinition">
+      <id>18</id>
+      <name>Solicitudes a Almacén TDE</name>
+      <title>Solicitudes a Almacén TDE</title>
+      <description>Pantalla de búsqueda de solicitudes del operador logistico TDE</description>
+      <timeout>40</timeout>
+      <showEditToPublic>false</showEditToPublic>
+      <hasAbout>false</hasAbout>
+      <showEdit>false</showEdit>
+      <hasHelp>false</hasHelp>
+      <showEditDefault>false</showEditDefault>
+      <showDetails>false</showDetails>
+      <renderer class="oracle.portal.provider.v2.render.RenderManager">
+         <renderContainer>true</renderContainer>
+         <renderCustomize>true</renderCustomize>
+         <autoRedirect>true</autoRedirect>
+         <contentType>text/html</contentType>
+         <showPage class="oracle.portal.provider.v2.render.http.ResourceRenderer">
+            <resourcePath>/pages/TDE/JP_SEARCH_REQUEST_STORE/JP_SEARCH_REQUEST_STORE_ShowPage.jsp</resourcePath>
+         </showPage>
+      </renderer>
+      <securityManager class="oracle.portal.provider.v2.security.AuthLevelSecurityManager">
+         <securityLevel>weak</securityLevel>
+      </securityManager>
+   </portlet>
+   <portlet class="oracle.portal.provider.v2.DefaultPortletDefinition">
+      <id>19</id>
+      <name>Solicitud Manual a Almacén TDE</name>
+      <title>Solicitud Manual a Almacén TDE</title>
+      <description>Creación Manual de una Solicitud TDE</description>
+      <timeout>40</timeout>
+      <showEditToPublic>false</showEditToPublic>
+      <hasAbout>false</hasAbout>
+      <showEdit>false</showEdit>
+      <hasHelp>false</hasHelp>
+      <showEditDefault>false</showEditDefault>
+      <showDetails>false</showDetails>
+      <renderer class="oracle.portal.provider.v2.render.RenderManager">
+         <renderContainer>true</renderContainer>
+         <renderCustomize>true</renderCustomize>
+         <autoRedirect>true</autoRedirect>
+         <contentType>text/html</contentType>
+         <showPage class="oracle.portal.provider.v2.render.http.ResourceRenderer">
+            <resourcePath>/pages/TDE/JP_MANUAL_REQUEST_STORE/JP_MANUAL_REQUEST_STORE_ShowPage.jsp</resourcePath>
+         </showPage>
+      </renderer>
+      <securityManager class="oracle.portal.provider.v2.security.AuthLevelSecurityManager">
+         <securityLevel>weak</securityLevel>
+      </securityManager>
+   </portlet>
+     <portlet class="oracle.portal.provider.v2.DefaultPortletDefinition">
+      <id>20</id>
+      <name>Atencion de Solicitudes a Almacén TDE</name>
+      <title>Atencion de Solicitudes a Almacén TDE</title>
+      <description>Atención de Solicitudes del Operador Logistico</description>
+      <timeout>40</timeout>
+      <showEditToPublic>false</showEditToPublic>
+      <hasAbout>false</hasAbout>
+      <showEdit>false</showEdit>
+      <hasHelp>false</hasHelp>
+      <showEditDefault>false</showEditDefault>
+      <showDetails>false</showDetails>
+      <renderer class="oracle.portal.provider.v2.render.RenderManager">
+         <renderContainer>true</renderContainer>
+         <renderCustomize>true</renderCustomize>
+         <autoRedirect>true</autoRedirect>
+         <contentType>text/html</contentType>
+         <showPage class="oracle.portal.provider.v2.render.http.ResourceRenderer">
+            <resourcePath>/pages/TDE/JP_DETAIL_REQUEST_STORE/JP_DETAIL_REQUEST_ShowPage.jsp</resourcePath>
+         </showPage>
+      </renderer>
+      <securityManager class="oracle.portal.provider.v2.security.AuthLevelSecurityManager">
+         <securityLevel>weak</securityLevel>
+      </securityManager>
+   </portlet>
+</provider>
