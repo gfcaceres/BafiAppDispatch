@@ -473,6 +473,226 @@
          <value n="ejb:88c2197b-0170-1000-8012-190a99d50fdf" v="SEJBRequestTDE"/>
          <value n="ejb:88c2197b-0170-1000-8013-190a99d50fdf" v="SEJBGeneralTDE"/>
          <value n="ejb:88c2197b-0170-1000-8014-190a99d50fdf" v="SEJBBafiOutdoor"/>
+         <value n="ejb:89131951-0170-1000-8015-190a99d50fdf" v="SEJBRequest"/>
+         <value n="ejb:89131951-0170-1000-8016-190a99d50fdf" v="SEJBGeneral"/>
+         <value n="ejb:89131951-0170-1000-8017-190a99d50fdf" v="SEJBSession"/>
+         <value n="ejb:89131951-0170-1000-8018-190a99d50fdf" v="SEJBRequestManual"/>
+         <value n="ejb:89131951-0170-1000-8019-190a99d50fdf" v="SEJBCompany"/>
+         <value n="ejb:89131951-0170-1000-801a-190a99d50fdf" v="SEJBItem"/>
+         <value n="ejb:89131951-0170-1000-801b-190a99d50fdf" v="SEJBRequestManualTDE"/>
+         <value n="ejb:89131951-0170-1000-801c-190a99d50fdf" v="SEJBRequestTDE"/>
+         <value n="ejb:89131951-0170-1000-801d-190a99d50fdf" v="SEJBGeneralTDE"/>
+         <value n="ejb:89131951-0170-1000-801e-190a99d50fdf" v="SEJBBafiOutdoor"/>
+         <value n="ejb:89131ad7-0170-1000-801f-190a99d50fdf" v="SEJBRequest"/>
+         <value n="ejb:89131ad7-0170-1000-8020-190a99d50fdf" v="SEJBGeneral"/>
+         <value n="ejb:89131ad7-0170-1000-8021-190a99d50fdf" v="SEJBSession"/>
+         <value n="ejb:89131ad7-0170-1000-8022-190a99d50fdf" v="SEJBRequestManual"/>
+         <value n="ejb:89131ad7-0170-1000-8023-190a99d50fdf" v="SEJBCompany"/>
+         <value n="ejb:89131ad7-0170-1000-8024-190a99d50fdf" v="SEJBItem"/>
+         <value n="ejb:89131ad7-0170-1000-8025-190a99d50fdf" v="SEJBRequestManualTDE"/>
+         <value n="ejb:89131ad7-0170-1000-8026-190a99d50fdf" v="SEJBRequestTDE"/>
+         <value n="ejb:89131ad7-0170-1000-8027-190a99d50fdf" v="SEJBGeneralTDE"/>
+         <value n="ejb:89131ad7-0170-1000-8028-190a99d50fdf" v="SEJBBafiOutdoor"/>
+         <value n="ejb:891830e1-0170-1000-8029-190a99d50fdf" v="SEJBRequest"/>
+         <value n="ejb:891830e1-0170-1000-802a-190a99d50fdf" v="SEJBGeneral"/>
+         <value n="ejb:891830e1-0170-1000-802b-190a99d50fdf" v="SEJBSession"/>
+         <value n="ejb:891830e1-0170-1000-802c-190a99d50fdf" v="SEJBRequestManual"/>
+         <value n="ejb:891830eb-0170-1000-802d-190a99d50fdf" v="SEJBCompany"/>
+         <value n="ejb:891830eb-0170-1000-802e-190a99d50fdf" v="SEJBItem"/>
+         <value n="ejb:891830eb-0170-1000-802f-190a99d50fdf" v="SEJBRequestManualTDE"/>
+         <value n="ejb:891830eb-0170-1000-8030-190a99d50fdf" v="SEJBRequestTDE"/>
+         <value n="ejb:891830eb-0170-1000-8031-190a99d50fdf" v="SEJBGeneralTDE"/>
+         <value n="ejb:891830eb-0170-1000-8032-190a99d50fdf" v="SEJBBafiOutdoor"/>
+         <value n="ejb:8cf89f65-0170-1000-8001-190a99d5d4da" v="SEJBRequest"/>
+         <value n="ejb:8cf89f66-0170-1000-8002-190a99d5d4da" v="SEJBGeneral"/>
+         <value n="ejb:8cf89f66-0170-1000-8003-190a99d5d4da" v="SEJBSession"/>
+         <value n="ejb:8cf89f67-0170-1000-8004-190a99d5d4da" v="SEJBRequestManual"/>
+         <value n="ejb:8cf89f67-0170-1000-8005-190a99d5d4da" v="SEJBCompany"/>
+         <value n="ejb:8cf89f67-0170-1000-8006-190a99d5d4da" v="SEJBItem"/>
+         <value n="ejb:8cf89f67-0170-1000-8007-190a99d5d4da" v="SEJBRequestManualTDE"/>
+         <value n="ejb:8cf89f67-0170-1000-8008-190a99d5d4da" v="SEJBRequestTDE"/>
+         <value n="ejb:8cf89f67-0170-1000-8009-190a99d5d4da" v="SEJBGeneralTDE"/>
+         <value n="ejb:8cf89f67-0170-1000-800a-190a99d5d4da" v="SEJBBafiOutdoor"/>
+         <value n="ejb:8d015c47-0170-1000-800b-190a99d5d4da" v="SEJBRequest"/>
+         <value n="ejb:8d015c47-0170-1000-800c-190a99d5d4da" v="SEJBGeneral"/>
+         <value n="ejb:8d015c47-0170-1000-800d-190a99d5d4da" v="SEJBSession"/>
+         <value n="ejb:8d015c47-0170-1000-800e-190a99d5d4da" v="SEJBRequestManual"/>
+         <value n="ejb:8d015c47-0170-1000-800f-190a99d5d4da" v="SEJBCompany"/>
+         <value n="ejb:8d015c47-0170-1000-8010-190a99d5d4da" v="SEJBItem"/>
+         <value n="ejb:8d015c48-0170-1000-8011-190a99d5d4da" v="SEJBRequestManualTDE"/>
+         <value n="ejb:8d015c48-0170-1000-8012-190a99d5d4da" v="SEJBRequestTDE"/>
+         <value n="ejb:8d015c48-0170-1000-8013-190a99d5d4da" v="SEJBGeneralTDE"/>
+         <value n="ejb:8d015c48-0170-1000-8014-190a99d5d4da" v="SEJBBafiOutdoor"/>
+         <value n="ejb:8d015e44-0170-1000-8015-190a99d5d4da" v="SEJBRequest"/>
+         <value n="ejb:8d015e44-0170-1000-8016-190a99d5d4da" v="SEJBGeneral"/>
+         <value n="ejb:8d015e44-0170-1000-8017-190a99d5d4da" v="SEJBSession"/>
+         <value n="ejb:8d015e44-0170-1000-8018-190a99d5d4da" v="SEJBRequestManual"/>
+         <value n="ejb:8d015e44-0170-1000-8019-190a99d5d4da" v="SEJBCompany"/>
+         <value n="ejb:8d015e44-0170-1000-801a-190a99d5d4da" v="SEJBItem"/>
+         <value n="ejb:8d015e45-0170-1000-801b-190a99d5d4da" v="SEJBRequestManualTDE"/>
+         <value n="ejb:8d015e45-0170-1000-801c-190a99d5d4da" v="SEJBRequestTDE"/>
+         <value n="ejb:8d015e45-0170-1000-801d-190a99d5d4da" v="SEJBGeneralTDE"/>
+         <value n="ejb:8d015e45-0170-1000-801e-190a99d5d4da" v="SEJBBafiOutdoor"/>
+         <value n="ejb:8d017afe-0170-1000-801f-190a99d5d4da" v="SEJBRequest"/>
+         <value n="ejb:8d017afe-0170-1000-8020-190a99d5d4da" v="SEJBGeneral"/>
+         <value n="ejb:8d017afe-0170-1000-8021-190a99d5d4da" v="SEJBSession"/>
+         <value n="ejb:8d017afe-0170-1000-8022-190a99d5d4da" v="SEJBRequestManual"/>
+         <value n="ejb:8d017afe-0170-1000-8023-190a99d5d4da" v="SEJBCompany"/>
+         <value n="ejb:8d017aff-0170-1000-8024-190a99d5d4da" v="SEJBItem"/>
+         <value n="ejb:8d017aff-0170-1000-8025-190a99d5d4da" v="SEJBRequestManualTDE"/>
+         <value n="ejb:8d017aff-0170-1000-8026-190a99d5d4da" v="SEJBRequestTDE"/>
+         <value n="ejb:8d017aff-0170-1000-8027-190a99d5d4da" v="SEJBGeneralTDE"/>
+         <value n="ejb:8d017aff-0170-1000-8028-190a99d5d4da" v="SEJBBafiOutdoor"/>
+         <value n="ejb:8d017c34-0170-1000-8029-190a99d5d4da" v="SEJBRequest"/>
+         <value n="ejb:8d017c34-0170-1000-802a-190a99d5d4da" v="SEJBGeneral"/>
+         <value n="ejb:8d017c34-0170-1000-802b-190a99d5d4da" v="SEJBSession"/>
+         <value n="ejb:8d017c34-0170-1000-802c-190a99d5d4da" v="SEJBRequestManual"/>
+         <value n="ejb:8d017c34-0170-1000-802d-190a99d5d4da" v="SEJBCompany"/>
+         <value n="ejb:8d017c34-0170-1000-802e-190a99d5d4da" v="SEJBItem"/>
+         <value n="ejb:8d017c34-0170-1000-802f-190a99d5d4da" v="SEJBRequestManualTDE"/>
+         <value n="ejb:8d017c35-0170-1000-8030-190a99d5d4da" v="SEJBRequestTDE"/>
+         <value n="ejb:8d017c35-0170-1000-8031-190a99d5d4da" v="SEJBGeneralTDE"/>
+         <value n="ejb:8d017c35-0170-1000-8032-190a99d5d4da" v="SEJBBafiOutdoor"/>
+         <value n="ejb:8d21d053-0170-1000-8033-190a99d5d4da" v="SEJBRequest"/>
+         <value n="ejb:8d21d053-0170-1000-8034-190a99d5d4da" v="SEJBGeneral"/>
+         <value n="ejb:8d21d053-0170-1000-8035-190a99d5d4da" v="SEJBSession"/>
+         <value n="ejb:8d21d054-0170-1000-8036-190a99d5d4da" v="SEJBRequestManual"/>
+         <value n="ejb:8d21d054-0170-1000-8037-190a99d5d4da" v="SEJBCompany"/>
+         <value n="ejb:8d21d054-0170-1000-8038-190a99d5d4da" v="SEJBItem"/>
+         <value n="ejb:8d21d054-0170-1000-8039-190a99d5d4da" v="SEJBRequestManualTDE"/>
+         <value n="ejb:8d21d054-0170-1000-803a-190a99d5d4da" v="SEJBRequestTDE"/>
+         <value n="ejb:8d21d054-0170-1000-803b-190a99d5d4da" v="SEJBGeneralTDE"/>
+         <value n="ejb:8d21d054-0170-1000-803c-190a99d5d4da" v="SEJBBafiOutdoor"/>
+         <value n="ejb:8d21d1cc-0170-1000-803d-190a99d5d4da" v="SEJBRequest"/>
+         <value n="ejb:8d21d1cc-0170-1000-803e-190a99d5d4da" v="SEJBGeneral"/>
+         <value n="ejb:8d21d1cc-0170-1000-803f-190a99d5d4da" v="SEJBSession"/>
+         <value n="ejb:8d21d1cc-0170-1000-8040-190a99d5d4da" v="SEJBRequestManual"/>
+         <value n="ejb:8d21d1cc-0170-1000-8041-190a99d5d4da" v="SEJBCompany"/>
+         <value n="ejb:8d21d1cc-0170-1000-8042-190a99d5d4da" v="SEJBItem"/>
+         <value n="ejb:8d21d1cd-0170-1000-8043-190a99d5d4da" v="SEJBRequestManualTDE"/>
+         <value n="ejb:8d21d1cd-0170-1000-8044-190a99d5d4da" v="SEJBRequestTDE"/>
+         <value n="ejb:8d21d1cd-0170-1000-8045-190a99d5d4da" v="SEJBGeneralTDE"/>
+         <value n="ejb:8d21d1cd-0170-1000-8046-190a99d5d4da" v="SEJBBafiOutdoor"/>
+         <value n="ejb:8d39e76b-0170-1000-8047-190a99d5d4da" v="SEJBRequest"/>
+         <value n="ejb:8d39e76b-0170-1000-8048-190a99d5d4da" v="SEJBGeneral"/>
+         <value n="ejb:8d39e76b-0170-1000-8049-190a99d5d4da" v="SEJBSession"/>
+         <value n="ejb:8d39e76b-0170-1000-804a-190a99d5d4da" v="SEJBRequestManual"/>
+         <value n="ejb:8d39e76b-0170-1000-804b-190a99d5d4da" v="SEJBCompany"/>
+         <value n="ejb:8d39e76b-0170-1000-804c-190a99d5d4da" v="SEJBItem"/>
+         <value n="ejb:8d39e76c-0170-1000-804d-190a99d5d4da" v="SEJBRequestManualTDE"/>
+         <value n="ejb:8d39e76c-0170-1000-804e-190a99d5d4da" v="SEJBRequestTDE"/>
+         <value n="ejb:8d39e76c-0170-1000-804f-190a99d5d4da" v="SEJBGeneralTDE"/>
+         <value n="ejb:8d39e76c-0170-1000-8050-190a99d5d4da" v="SEJBBafiOutdoor"/>
+         <value n="ejb:9bdfe318-0170-1000-8051-190a99d5d4da" v="SEJBRequest"/>
+         <value n="ejb:9bdfe318-0170-1000-8052-190a99d5d4da" v="SEJBGeneral"/>
+         <value n="ejb:9bdfe318-0170-1000-8053-190a99d5d4da" v="SEJBSession"/>
+         <value n="ejb:9bdfe319-0170-1000-8054-190a99d5d4da" v="SEJBRequestManual"/>
+         <value n="ejb:9bdfe319-0170-1000-8055-190a99d5d4da" v="SEJBCompany"/>
+         <value n="ejb:9bdfe319-0170-1000-8056-190a99d5d4da" v="SEJBItem"/>
+         <value n="ejb:9bdfe319-0170-1000-8057-190a99d5d4da" v="SEJBRequestManualTDE"/>
+         <value n="ejb:9bdfe319-0170-1000-8058-190a99d5d4da" v="SEJBRequestTDE"/>
+         <value n="ejb:9bdfe319-0170-1000-8059-190a99d5d4da" v="SEJBGeneralTDE"/>
+         <value n="ejb:9bdfe319-0170-1000-805a-190a99d5d4da" v="SEJBBafiOutdoor"/>
+         <value n="ejb:9c383575-0170-1000-8001-c0a8de616514" v="SEJBRequest"/>
+         <value n="ejb:9c383577-0170-1000-8002-c0a8de616514" v="SEJBGeneral"/>
+         <value n="ejb:9c383577-0170-1000-8003-c0a8de616514" v="SEJBSession"/>
+         <value n="ejb:9c383577-0170-1000-8004-c0a8de616514" v="SEJBRequestManual"/>
+         <value n="ejb:9c383577-0170-1000-8005-c0a8de616514" v="SEJBCompany"/>
+         <value n="ejb:9c383577-0170-1000-8006-c0a8de616514" v="SEJBItem"/>
+         <value n="ejb:9c383577-0170-1000-8007-c0a8de616514" v="SEJBRequestManualTDE"/>
+         <value n="ejb:9c383578-0170-1000-8008-c0a8de616514" v="SEJBRequestTDE"/>
+         <value n="ejb:9c383578-0170-1000-8009-c0a8de616514" v="SEJBGeneralTDE"/>
+         <value n="ejb:9c383578-0170-1000-800a-c0a8de616514" v="SEJBBafiOutdoor"/>
+         <value n="ejb:9ca95a2b-0170-1000-800b-c0a8de616514" v="SEJBRequest"/>
+         <value n="ejb:9ca95a2b-0170-1000-800c-c0a8de616514" v="SEJBGeneral"/>
+         <value n="ejb:9ca95a2c-0170-1000-800d-c0a8de616514" v="SEJBSession"/>
+         <value n="ejb:9ca95a2c-0170-1000-800e-c0a8de616514" v="SEJBRequestManual"/>
+         <value n="ejb:9ca95a2c-0170-1000-800f-c0a8de616514" v="SEJBCompany"/>
+         <value n="ejb:9ca95a2c-0170-1000-8010-c0a8de616514" v="SEJBItem"/>
+         <value n="ejb:9ca95a2c-0170-1000-8011-c0a8de616514" v="SEJBRequestManualTDE"/>
+         <value n="ejb:9ca95a2c-0170-1000-8012-c0a8de616514" v="SEJBRequestTDE"/>
+         <value n="ejb:9ca95a2c-0170-1000-8013-c0a8de616514" v="SEJBGeneralTDE"/>
+         <value n="ejb:9ca95a2d-0170-1000-8014-c0a8de616514" v="SEJBBafiOutdoor"/>
+         <value n="ejb:9ceb46be-0170-1000-8015-c0a8de616514" v="SEJBRequest"/>
+         <value n="ejb:9ceb46be-0170-1000-8016-c0a8de616514" v="SEJBGeneral"/>
+         <value n="ejb:9ceb46be-0170-1000-8017-c0a8de616514" v="SEJBSession"/>
+         <value n="ejb:9ceb46be-0170-1000-8018-c0a8de616514" v="SEJBRequestManual"/>
+         <value n="ejb:9ceb46be-0170-1000-8019-c0a8de616514" v="SEJBCompany"/>
+         <value n="ejb:9ceb46be-0170-1000-801a-c0a8de616514" v="SEJBItem"/>
+         <value n="ejb:9ceb46be-0170-1000-801b-c0a8de616514" v="SEJBRequestManualTDE"/>
+         <value n="ejb:9ceb46bf-0170-1000-801c-c0a8de616514" v="SEJBRequestTDE"/>
+         <value n="ejb:9ceb46bf-0170-1000-801d-c0a8de616514" v="SEJBGeneralTDE"/>
+         <value n="ejb:9ceb46bf-0170-1000-801e-c0a8de616514" v="SEJBBafiOutdoor"/>
+         <value n="ejb:9cebe411-0170-1000-801f-c0a8de616514" v="SEJBRequest"/>
+         <value n="ejb:9cebe412-0170-1000-8020-c0a8de616514" v="SEJBGeneral"/>
+         <value n="ejb:9cebe412-0170-1000-8021-c0a8de616514" v="SEJBSession"/>
+         <value n="ejb:9cebe412-0170-1000-8022-c0a8de616514" v="SEJBRequestManual"/>
+         <value n="ejb:9cebe412-0170-1000-8023-c0a8de616514" v="SEJBCompany"/>
+         <value n="ejb:9cebe412-0170-1000-8024-c0a8de616514" v="SEJBItem"/>
+         <value n="ejb:9cebe412-0170-1000-8025-c0a8de616514" v="SEJBRequestManualTDE"/>
+         <value n="ejb:9cebe412-0170-1000-8026-c0a8de616514" v="SEJBRequestTDE"/>
+         <value n="ejb:9cebe412-0170-1000-8027-c0a8de616514" v="SEJBGeneralTDE"/>
+         <value n="ejb:9cebe413-0170-1000-8028-c0a8de616514" v="SEJBBafiOutdoor"/>
+         <value n="ejb:9cebe520-0170-1000-8029-c0a8de616514" v="SEJBRequest"/>
+         <value n="ejb:9cebe521-0170-1000-802a-c0a8de616514" v="SEJBGeneral"/>
+         <value n="ejb:9cebe521-0170-1000-802b-c0a8de616514" v="SEJBSession"/>
+         <value n="ejb:9cebe521-0170-1000-802c-c0a8de616514" v="SEJBRequestManual"/>
+         <value n="ejb:9cebe521-0170-1000-802d-c0a8de616514" v="SEJBCompany"/>
+         <value n="ejb:9cebe521-0170-1000-802e-c0a8de616514" v="SEJBItem"/>
+         <value n="ejb:9cebe521-0170-1000-802f-c0a8de616514" v="SEJBRequestManualTDE"/>
+         <value n="ejb:9cebe521-0170-1000-8030-c0a8de616514" v="SEJBRequestTDE"/>
+         <value n="ejb:9cebe521-0170-1000-8031-c0a8de616514" v="SEJBGeneralTDE"/>
+         <value n="ejb:9cebe521-0170-1000-8032-c0a8de616514" v="SEJBBafiOutdoor"/>
+         <value n="ejb:9d03c779-0170-1000-8033-c0a8de616514" v="SEJBRequest"/>
+         <value n="ejb:9d03c779-0170-1000-8034-c0a8de616514" v="SEJBGeneral"/>
+         <value n="ejb:9d03c77a-0170-1000-8035-c0a8de616514" v="SEJBSession"/>
+         <value n="ejb:9d03c77a-0170-1000-8036-c0a8de616514" v="SEJBRequestManual"/>
+         <value n="ejb:9d03c77a-0170-1000-8037-c0a8de616514" v="SEJBCompany"/>
+         <value n="ejb:9d03c77a-0170-1000-8038-c0a8de616514" v="SEJBItem"/>
+         <value n="ejb:9d03c77a-0170-1000-8039-c0a8de616514" v="SEJBRequestManualTDE"/>
+         <value n="ejb:9d03c77a-0170-1000-803a-c0a8de616514" v="SEJBRequestTDE"/>
+         <value n="ejb:9d03c77a-0170-1000-803b-c0a8de616514" v="SEJBGeneralTDE"/>
+         <value n="ejb:9d03c77a-0170-1000-803c-c0a8de616514" v="SEJBBafiOutdoor"/>
+         <value n="ejb:9d0d5916-0170-1000-803d-c0a8de616514" v="SEJBRequest"/>
+         <value n="ejb:9d0d5916-0170-1000-803e-c0a8de616514" v="SEJBGeneral"/>
+         <value n="ejb:9d0d5917-0170-1000-803f-c0a8de616514" v="SEJBSession"/>
+         <value n="ejb:9d0d5917-0170-1000-8040-c0a8de616514" v="SEJBRequestManual"/>
+         <value n="ejb:9d0d5917-0170-1000-8041-c0a8de616514" v="SEJBCompany"/>
+         <value n="ejb:9d0d5917-0170-1000-8042-c0a8de616514" v="SEJBItem"/>
+         <value n="ejb:9d0d5917-0170-1000-8043-c0a8de616514" v="SEJBRequestManualTDE"/>
+         <value n="ejb:9d0d5917-0170-1000-8044-c0a8de616514" v="SEJBRequestTDE"/>
+         <value n="ejb:9d0d5917-0170-1000-8045-c0a8de616514" v="SEJBGeneralTDE"/>
+         <value n="ejb:9d0d5917-0170-1000-8046-c0a8de616514" v="SEJBBafiOutdoor"/>
+         <value n="ejb:9d0d5b29-0170-1000-8047-c0a8de616514" v="SEJBRequest"/>
+         <value n="ejb:9d0d5b29-0170-1000-8048-c0a8de616514" v="SEJBGeneral"/>
+         <value n="ejb:9d0d5b29-0170-1000-8049-c0a8de616514" v="SEJBSession"/>
+         <value n="ejb:9d0d5b29-0170-1000-804a-c0a8de616514" v="SEJBRequestManual"/>
+         <value n="ejb:9d0d5b29-0170-1000-804b-c0a8de616514" v="SEJBCompany"/>
+         <value n="ejb:9d0d5b29-0170-1000-804c-c0a8de616514" v="SEJBItem"/>
+         <value n="ejb:9d0d5b2a-0170-1000-804d-c0a8de616514" v="SEJBRequestManualTDE"/>
+         <value n="ejb:9d0d5b2a-0170-1000-804e-c0a8de616514" v="SEJBRequestTDE"/>
+         <value n="ejb:9d0d5b2a-0170-1000-804f-c0a8de616514" v="SEJBGeneralTDE"/>
+         <value n="ejb:9d0d5b2a-0170-1000-8050-c0a8de616514" v="SEJBBafiOutdoor"/>
+         <value n="ejb:9d244b37-0170-1000-8051-c0a8de616514" v="SEJBRequest"/>
+         <value n="ejb:9d244b38-0170-1000-8052-c0a8de616514" v="SEJBGeneral"/>
+         <value n="ejb:9d244b38-0170-1000-8053-c0a8de616514" v="SEJBSession"/>
+         <value n="ejb:9d244b38-0170-1000-8054-c0a8de616514" v="SEJBRequestManual"/>
+         <value n="ejb:9d244b38-0170-1000-8055-c0a8de616514" v="SEJBCompany"/>
+         <value n="ejb:9d244b38-0170-1000-8056-c0a8de616514" v="SEJBItem"/>
+         <value n="ejb:9d244b38-0170-1000-8057-c0a8de616514" v="SEJBRequestManualTDE"/>
+         <value n="ejb:9d244b38-0170-1000-8058-c0a8de616514" v="SEJBRequestTDE"/>
+         <value n="ejb:9d244b38-0170-1000-8059-c0a8de616514" v="SEJBGeneralTDE"/>
+         <value n="ejb:9d244b38-0170-1000-805a-c0a8de616514" v="SEJBBafiOutdoor"/>
+         <value n="ejb:9d244c43-0170-1000-805b-c0a8de616514" v="SEJBRequest"/>
+         <value n="ejb:9d244c43-0170-1000-805c-c0a8de616514" v="SEJBGeneral"/>
+         <value n="ejb:9d244c43-0170-1000-805d-c0a8de616514" v="SEJBSession"/>
+         <value n="ejb:9d244c43-0170-1000-805e-c0a8de616514" v="SEJBRequestManual"/>
+         <value n="ejb:9d244c44-0170-1000-805f-c0a8de616514" v="SEJBCompany"/>
+         <value n="ejb:9d244c44-0170-1000-8060-c0a8de616514" v="SEJBItem"/>
+         <value n="ejb:9d244c44-0170-1000-8061-c0a8de616514" v="SEJBRequestManualTDE"/>
+         <value n="ejb:9d244c44-0170-1000-8062-c0a8de616514" v="SEJBRequestTDE"/>
+         <value n="ejb:9d244c44-0170-1000-8063-c0a8de616514" v="SEJBGeneralTDE"/>
+         <value n="ejb:9d244c44-0170-1000-8064-c0a8de616514" v="SEJBBafiOutdoor"/>
          <value n="ejb:a7e68f94-013f-1000-8001-ac1509633084" v="SEJBRequest"/>
          <value n="ejb:a7e68fa4-013f-1000-8002-ac1509633084" v="SEJBGeneral"/>
          <value n="ejb:a7e68fa4-013f-1000-8003-ac1509633084" v="SEJBSession"/>
@@ -1443,12 +1663,7 @@
       </list>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectLibraries">
-      <list n="exportedReferences">
-         <hash>
-            <value n="id" v="Java EE 1.5 API"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-      </list>
+      <list n="exportedReferences"/>
       <hash n="internalDefinitions">
          <list n="jdkDefinitions"/>
          <list n="libraryDefinitions"/>
@@ -1472,15 +1687,15 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <url n="id" path="../LIBRARIES_OFM11G/CommonLibraries.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" path="../LIBRARIES_OFM11G/CommonLibrariesInboxOrders.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="Java EE 1.5 API"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" protocol="file" path="/L:/Weblogic11g/CommonLibraries.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" protocol="file" path="/L:/Weblogic11g/CommonLibrariesInboxOrders.library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

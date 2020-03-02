@@ -269,6 +269,24 @@
                   <url path="public_html/"/>
                </list>
             </hash>
+            <hash>
+               <url n="content-folder-url" path="public_html/pages/TDE/JP_DETAIL_REQUEST_STORE/"/>
+               <list n="pattern-filters">
+                  <string v="+pages/TDE/JP_DETAIL_REQUEST_STORE/"/>
+               </list>
+               <list n="url-path">
+                  <url path="public_html/"/>
+               </list>
+            </hash>
+            <hash>
+               <url n="content-folder-url" path="public_html/pages/TDE/JP_SEARCH_REQUEST_STORE/"/>
+               <list n="pattern-filters">
+                  <string v="+pages/TDE/JP_SEARCH_REQUEST_STORE/"/>
+               </list>
+               <list n="url-path">
+                  <url path="public_html/"/>
+               </list>
+            </hash>
          </list>
       </hash>
    </hash>
@@ -349,6 +367,10 @@
             <value n="id" v="Gson-2.2.4.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <url n="id" protocol="file" path="/L:/Weblogic11g/CommonLibraries.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="jdkDefinitions"/>
@@ -387,11 +409,11 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <url n="id" path="../LIBRARIES_OFM11G/CommonLibraries.library"/>
+            <value n="id" v="Gson-2.2.4.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Gson-2.2.4.jar"/>
+            <url n="id" protocol="file" path="/L:/Weblogic11g/CommonLibraries.library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

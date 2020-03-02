@@ -391,10 +391,6 @@
                     document.getElementById("imei_num_"+indice).value=imei;                    
                     document.getElementById("txtImeis").value = "";
                     
-                    /*******if(document.getElementById("sim_num_"+indice).value == ""){
-                        document.getElementById("sim_num_"+indice).value = sim;    
-                    }********/
-                    
                     document.getElementById("txtSims").value = sim;
                     
                     
@@ -405,19 +401,8 @@
                     document.getElementById('cmbProductStatus').disabled = true;
                     
                     }
-                    //Seleccionamos el siguiente radio button si todos lo campos tienen datos
-                    /*if(trim(document.getElementById("almacen_desc_"+indice).value) != ""          &&
-                        trim(document.getElementById("subintentario_desc_"+indice).value) != ""   &&
-                        trim(document.getElementById("sim_num_"+indice).value) != ""    &&
-                        trim(document.getElementById("imei_num_"+indice).value) != "" ){
-                        
-                            try{
-                                //Seleccionamos el siguiente radio boton
-                                radio[indice + 1].checked = true;
-                            }catch(ex){
-                                //Si el indice esta fuera del rango no hace nada
-                            }
-                    }*/
+                    
+                    validarIMEIOutdoor(imei);
                     
                   }
                   else{
@@ -431,8 +416,51 @@
           }); 
                         
         }                
-      }
+    }
       
+    function validarIMEIOutdoor(imei){
+        var numOrden = $("#lblNumOrden").html();
+        alert("el txtImei1 es : " + imei);
+        alert("el valor es : " + numOrden);
+        $("#hdnMetodo").val("buscarCliente");
+        var url_server = "${pageContext.request.contextPath}/requestservlet";
+        var parametros = "ordenId="+numOrden+"&imei="+imei;
+        jQuery.ajax({
+            type: "POST",
+            url: url_server,
+            data: parametros,
+            dataType: "json",
+            async: false,
+            cache: false,
+            success: function (response) {
+                
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                fxValidarErroresAjax(jqXHR, textStatus);
+      
+            }
+        });    
+    }
+
+    function fxValidarErroresAjax(jqXHR, textStatus) {
+        if (jqXHR.status === 0) {
+            alert("No hay conexión, verificar.");
+        } else if (jqXHR.status == 404) {
+            alert("Página no encontrada [404].");
+        } else if (jqXHR.status == 500) {
+            alert("Error Interno [500].");
+        } else if (textStatus === 'parsererror') {
+            alert("Error de conversion JSON");
+        } else if (textStatus === 'timeout') {
+            alert("Tiempo de esperado excedido.");
+        } else if (textStatus === 'abort') {
+            alert("Solicitud Ajax abortada");
+        } else {
+            alert("Error inesperado: " + jqXHR.responseText);
+
+        }
+    }
+    
     //INICIO JGABRIEL REQ-0123
     function myAlert(data) {
     alert(data);
