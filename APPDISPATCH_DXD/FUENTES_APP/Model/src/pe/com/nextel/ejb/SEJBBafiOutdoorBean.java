@@ -106,7 +106,7 @@ public class SEJBBafiOutdoorBean implements SessionBean {
         return true;
     }
     
-    public HashMap validarRegularizarOrdenOutdoor(Long ordenId, String imei) throws  SQLException, Exception{
+    public HashMap validarRegularizarOrdenOutdoor(Long ordenId, String imei) throws  UserException, Exception{
       logger.info("[SEJBBafiOutdoorBean][validarRegularizarOrdenOutdoor] Inicio");
       logger.info("[SEJBBafiOutdoorBean][validarRegularizarOrdenOutdoor] entrada ordenId["+ordenId+"]");        
       logger.info("[SEJBBafiOutdoorBean][validarRegularizarOrdenOutdoor] entrada imei["+imei+"]");        
@@ -116,13 +116,14 @@ public class SEJBBafiOutdoorBean implements SessionBean {
       return hshDataMap;
     }
     
-    public void regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor)throws UserException {
+    public HashMap regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor)throws UserException {
        logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Inicio");
        logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Entrada numOrderId["+ordenId+"]");
        logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Entrada imei["+imei+"]");
        logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Entrada almacenId["+almacenId+"]");
        logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Entrada creadoPor["+creadoPor+"]");       
-       bafiOutdoorDAO.regularizarOrdenOutdoor( ordenId, imei, almacenId, creadoPor);
+       HashMap hshDataMap = bafiOutdoorDAO.regularizarOrdenOutdoor( ordenId, imei, almacenId, creadoPor);
        logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Fin");
+       return hshDataMap;
     }  
 }

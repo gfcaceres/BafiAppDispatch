@@ -159,7 +159,9 @@ public class BafiOutdoorDAO extends GenericDAO {
         Connection conn         = null;
         OracleCallableStatement cstmt = null;
         HashMap hshDataMap = new HashMap();
-       
+        Integer errorCodigo = null;
+        String errorMensaje = null;
+        String almacenId  = null;
         try {
             String strSql = "BEGIN ORDERS.PKG_SC_ORDERS44.SP_SC_CA_GET_BAFI_OUTDOOR( ?, ?, ?, ?, ?); END; " ;
 
@@ -172,10 +174,13 @@ public class BafiOutdoorDAO extends GenericDAO {
             cstmt.registerOutParameter(5, OracleTypes.VARCHAR);
             
             cstmt.executeQuery();
-           
-            hshDataMap.put("errorCodigo", cstmt.getInt(3));
-            hshDataMap.put("errorMensaje", cstmt.getString(4));
-            hshDataMap.put("almacenId", cstmt.getString(5));
+            errorCodigo = cstmt.getInt(3);
+            errorMensaje = cstmt.getString(4);
+            almacenId =  cstmt.getString(5);
+            
+            hshDataMap.put("errorCodigo", errorCodigo);
+            hshDataMap.put("errorMensaje",errorMensaje);
+            hshDataMap.put("almacenId", almacenId);
             
         } catch (Exception e) {
             throw new UserException(e);
@@ -201,6 +206,7 @@ public class BafiOutdoorDAO extends GenericDAO {
         Connection conn         = null;
         OracleCallableStatement cstmt = null;
         Integer errorCodigo = null;
+        String errorMensaje = null;
         HashMap hshDataMap = new HashMap();
         
         try {
@@ -217,14 +223,11 @@ public class BafiOutdoorDAO extends GenericDAO {
             
             cstmt.executeQuery();
             errorCodigo = cstmt.getInt(5);
-            
-            if(errorCodigo!=0){
-                throw new UserException(cstmt.getString(6));
-            }else{
-                hshDataMap.put("errorCodigo", cstmt.getInt(5));
-                hshDataMap.put("errorMensaje", cstmt.getString(6));
-            }
-            
+            errorMensaje = cstmt.getString(6);
+
+            hshDataMap.put("errorCodigo", errorCodigo);
+            hshDataMap.put("errorMensaje", errorMensaje);
+
         } catch (Exception e) {
             throw new UserException(e);
         } finally {

@@ -375,48 +375,31 @@
                         }
                     }
                     //INICIO JGABRIEL REQ-0123
+                    var respuesta = validarRegularizarOrdenOutdoor();
                     
-                    
-                    cadena = cadena.substr(posInicio+1);
-                    posInicio = cadena.indexOf('|');
-                    organization = cadena.slice(0,posInicio);     
-                    
-                    cadena = cadena.substr(posInicio+1);
-                    sim = cadena;
-                    
-                    document.getElementById("almacen_desc_"+indice).value = almacen;
-                    document.getElementById("subintentario_desc_"+indice).value = subinventario;  
-                    document.getElementById("txtIdOrganitation_"+indice).value = organization;   
-                    document.getElementById("imei_num_"+indice).value=imei;                    
-                    document.getElementById("txtImeis").value = "";
-                    
-                    /*******if(document.getElementById("sim_num_"+indice).value == ""){
-                        document.getElementById("sim_num_"+indice).value = sim;    
-                    }********/
-                    
-                    document.getElementById("txtSims").value = sim;
-                    
-                    
-                    
-                    if( bFlag == true ){
-                    
-                    document.getElementById("hdnProductStatus").value = document.getElementById('cmbProductStatus').value;
-                    document.getElementById('cmbProductStatus').disabled = true;
-                    
-                    }
-                    //Seleccionamos el siguiente radio button si todos lo campos tienen datos
-                    /*if(trim(document.getElementById("almacen_desc_"+indice).value) != ""          &&
-                        trim(document.getElementById("subintentario_desc_"+indice).value) != ""   &&
-                        trim(document.getElementById("sim_num_"+indice).value) != ""    &&
-                        trim(document.getElementById("imei_num_"+indice).value) != "" ){
+                    if (respuesta){
+                        cadena = cadena.substr(posInicio+1);
+                        posInicio = cadena.indexOf('|');
+                        organization = cadena.slice(0,posInicio);     
                         
-                            try{
-                                //Seleccionamos el siguiente radio boton
-                                radio[indice + 1].checked = true;
-                            }catch(ex){
-                                //Si el indice esta fuera del rango no hace nada
-                            }
-                    }*/
+                        cadena = cadena.substr(posInicio+1);
+                        sim = cadena;
+                        
+                        document.getElementById("almacen_desc_"+indice).value = almacen;
+                        document.getElementById("subintentario_desc_"+indice).value = subinventario;  
+                        document.getElementById("txtIdOrganitation_"+indice).value = organization;   
+                        document.getElementById("imei_num_"+indice).value=imei;                    
+                        document.getElementById("txtImeis").value = "";    
+                        document.getElementById("txtSims").value = sim;                                               
+                        
+                        if( bFlag == true ){                    
+                            document.getElementById("hdnProductStatus").value = document.getElementById('cmbProductStatus').value;
+                            document.getElementById('cmbProductStatus').disabled = true;                    
+                        }
+                    }else{
+                          document.getElementById("txtImeis").value = "";
+                          document.getElementById("txtImeis").focus() ;
+                    } 
                     
                   }
                   else{
@@ -1739,7 +1722,102 @@
       }
     }
  
+    function validarRegularizarOrdenOutdoor(){
+        var respuestaVal = false;
+        var imei = $("#txtImeis").val();
+        var numOrden = $("#lblNumOrden").html();
+
+        var url_server = "${pageContext.request.contextPath}/requestservlet";
+        var parametros = "ordenId="+numOrden+
+                         "&imei="+imei+
+                         "&METHOD=VALIDAR_REGULARIZAR_ORDEN_OUTDOOR";
+        jQuery.ajax({
+            type: "POST",
+            url: url_server,
+            data: parametros,
+            dataType: "json",
+            async: false,
+            cache: false,
+            success: function (response) {
+                
+                if (response.errorCodigo == "0") {
+                    respuestaVal = true;
+                }
+                if(response.errorCodigo=="-1" || response.errorCodigo=="2" ){
+                   var mensaje = response.errorMensaje;
+                   respuestaVal = false;
+                                
+                }
+                if(response.errorCodigo=="1"){
+                    var mensaje = response.errorMensaje;
+                    mensaje = mensaje.replace(/\|/g, "\n");
+                    var respuesta = confirm(mensaje);
+                    if(respuesta){
+                       regularizarOrdenOutdoor(response.almacenId);
+                       respuestaVal = true;
+                    }else{
+                       respuestaVal = false;
+                    }
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                fxValidarErroresAjax(jqXHR, textStatus);
+                respuestaVal = false;
+      
+            }
+        }); 
+        return respuestaVal;
+    }
+
+    function regularizarOrdenOutdoor(imei,almacenId){
+        var creadoPor ='<%=strLogin%>'; 
+        var imei = $("#txtImeis").val();
+        var numOrden = $("#lblNumOrden").html();
+        var url_server = "${pageContext.request.contextPath}/requestservlet";
+        var parametros = "ordenId="+numOrden+
+                         "&imei="+imei+
+                         "&almacenId="+almacenId+
+                         "&creadoPor="+creadoPor+
+                         "&METHOD=REGULARIZAR_ORDEN_OUTDOOR";
+        jQuery.ajax({
+            type: "POST",
+            url: url_server,
+            data: parametros,
+            dataType: "json",
+            async: false,
+            cache: false,
+            success: function (response) {
+                if (response.errorCodigo == "0") {
+                    alert("Se actualizó orden correctamente.");                   
+                }else{
+                    alert(response.errorMensaje);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                fxValidarErroresAjax(jqXHR, textStatus);
+      
+            }
+        });    
+    }
     
+    function fxValidarErroresAjax(jqXHR, textStatus) {
+        if (jqXHR.status === 0) {
+            alert("No hay conexión, verificar.");
+        } else if (jqXHR.status == 404) {
+            alert("Página no encontrada [404].");
+        } else if (jqXHR.status == 500) {
+            alert("Error Interno [500].");
+        } else if (textStatus === 'parsererror') {
+            alert("Error de conversion JSON");
+        } else if (textStatus === 'timeout') {
+            alert("Tiempo de esperado excedido.");
+        } else if (textStatus === 'abort') {
+            alert("Solicitud Ajax abortada");
+        } else {
+            alert("Error inesperado: " + jqXHR.responseText);
+
+        }
+    }    
 </script>
   
 </html>

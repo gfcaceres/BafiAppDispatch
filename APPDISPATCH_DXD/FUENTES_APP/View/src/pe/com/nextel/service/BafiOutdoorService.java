@@ -103,7 +103,8 @@ public class BafiOutdoorService extends GenericService{
         try{
           hshDataMap = getSEJBRemote().validarRegularizarOrdenOutdoor(ordenId, imei);           
         } catch(Exception e){
-            logger.error("[BafiOutdoorService][validarRegularizarOrdenOutdoor] Error inesperado",e);
+            hshDataMap.put("errorCodigo", "0");
+            logger.error("[BafiOutdoorService][validarRegularizarOrdenOutdoor] Error inesperado",e);            
         }
         
         return hshDataMap;

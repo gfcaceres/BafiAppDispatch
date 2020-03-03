@@ -1,5 +1,7 @@
 package pe.com.nextel.servlet;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -17,6 +19,7 @@ import org.apache.log4j.Logger;
 import pe.com.nextel.bean.DominioBean;
 import pe.com.nextel.bean.ItemBean;
 import pe.com.nextel.bean.RequestBean;
+import pe.com.nextel.service.BafiOutdoorService;
 import pe.com.nextel.service.GeneralService;
 import pe.com.nextel.service.ItemService;
 import pe.com.nextel.service.RequestService;
@@ -90,9 +93,17 @@ public class RequestServlet extends GenericServlet {
           }
           if(metodo!=null && metodo.equals("VALIDAR_MOELO_SOLICITADO")){             
             doValidateModelRequested(request, response);
-          }  
-          //FIN JGABRIEL REQ-0123    
-             
+          }            
+          //FIN JGABRIEL REQ-0123 
+            
+          if(metodo!=null && metodo.equals("VALIDAR_REGULARIZAR_ORDEN_OUTDOOR")){             
+            validarRegularizarOrdenOutdoor(request, response);
+          }              
+
+          if(metodo!=null && metodo.equals("REGULARIZAR_ORDEN_OUTDOOR")){             
+            regularizarOrdenOutdoor(request, response);
+          }     
+            
         } catch (Exception ex) {
             System.out.println("ERROR: " +ex.getMessage());
         }finally{
@@ -681,4 +692,48 @@ public class RequestServlet extends GenericServlet {
       out.close();
     } 
     //FIN JGABRIEL REQ-0123
+    
+    public void validarRegularizarOrdenOutdoor(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException{
+        logger.info("[validarRegularizarOrdenOutdoor] inicio");
+        BafiOutdoorService bafiOutdoorService = new BafiOutdoorService();
+        HashMap respuesta = null;
+        Gson gson = new Gson();
+        String respuestaJson = null;
+        
+        Long ordenId = Long.parseLong(request.getParameter("ordenId"));
+        String imei     = request.getParameter("imei");
+        
+        respuesta = bafiOutdoorService.validarRegularizarOrdenOutdoor(ordenId, imei);
+
+        response.setContentType("text/json");
+        response.setCharacterEncoding("UTF-8");
+        respuestaJson = gson.toJson(respuesta);
+        logger.info("[validarRegularizarOrdenOutdoor] respuestaJson: "+respuestaJson);
+        response.getWriter().write(respuestaJson);
+        response.getWriter().flush();
+        logger.info("[validarRegularizarOrdenOutdoor] fin");     
+    } 
+    
+    public void regularizarOrdenOutdoor(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException{
+        logger.info("[regularizarOrdenOutdoor] inicio");
+        HashMap respuesta = null;
+        BafiOutdoorService bafiOutdoorService = new BafiOutdoorService();
+        Gson gson = new Gson();
+        String respuestaJson = null;
+        
+        Long ordenId = Long.parseLong(request.getParameter("ordenId"));
+        String imei     = request.getParameter("imei");
+        String almacenId = request.getParameter("almacenId");
+        String creadoPor = request.getParameter("creadoPor");
+        
+        respuesta = bafiOutdoorService.regularizarOrdenOutdoor(ordenId, imei,almacenId,creadoPor);
+
+        response.setContentType("text/json");
+        response.setCharacterEncoding("UTF-8");
+        respuestaJson = gson.toJson(respuesta);
+        logger.info("[regularizarOrdenOutdoor] respuestaJson: "+respuestaJson);
+        response.getWriter().write(respuestaJson);
+        response.getWriter().flush();
+        logger.info("[regularizarOrdenOutdoor] fin");     
+    }        
 }

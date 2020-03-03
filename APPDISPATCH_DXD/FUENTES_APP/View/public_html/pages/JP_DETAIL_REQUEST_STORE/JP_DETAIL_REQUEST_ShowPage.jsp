@@ -376,33 +376,34 @@
                         }
                     }
                     //INICIO JGABRIEL REQ-0123
+                    var respuesta = validarRegularizarOrdenOutdoor();
                     
+                    if (respuesta){
+                        cadena = cadena.substr(posInicio+1);
+                        posInicio = cadena.indexOf('|');
+                        organization = cadena.slice(0,posInicio);     
+                        
+                        cadena = cadena.substr(posInicio+1);
+                        sim = cadena;
+                        
+                        document.getElementById("almacen_desc_"+indice).value = almacen;
+                        document.getElementById("subintentario_desc_"+indice).value = subinventario;  
+                        document.getElementById("txtIdOrganitation_"+indice).value = organization;
+                        document.getElementById("imei_num_"+indice).value=imei;                    
+                        document.getElementById("txtImeis").value = "";                        
+                        document.getElementById("txtSims").value = sim;                        
+                                                
+                        if( bFlag == true ){                        
+                            document.getElementById("hdnProductStatus").value = document.getElementById('cmbProductStatus').value;
+                            document.getElementById('cmbProductStatus').disabled = true;                        
+                        }                 
+                    }else{
+                          document.getElementById("txtImeis").value = "";
+                          document.getElementById("txtImeis").focus() ;
+                    } 
+
                     
-                    cadena = cadena.substr(posInicio+1);
-                    posInicio = cadena.indexOf('|');
-                    organization = cadena.slice(0,posInicio);     
-                    
-                    cadena = cadena.substr(posInicio+1);
-                    sim = cadena;
-                    
-                    document.getElementById("almacen_desc_"+indice).value = almacen;
-                    document.getElementById("subintentario_desc_"+indice).value = subinventario;  
-                    document.getElementById("txtIdOrganitation_"+indice).value = organization;   
-                    document.getElementById("imei_num_"+indice).value=imei;                    
-                    document.getElementById("txtImeis").value = "";
-                    
-                    document.getElementById("txtSims").value = sim;
-                    
-                    
-                    
-                    if( bFlag == true ){
-                    
-                    document.getElementById("hdnProductStatus").value = document.getElementById('cmbProductStatus').value;
-                    document.getElementById('cmbProductStatus').disabled = true;
-                    
-                    }
-                    
-                    validarIMEIOutdoor(imei);
+                   
                     
                   }
                   else{
@@ -417,50 +418,7 @@
                         
         }                
     }
-      
-    function validarIMEIOutdoor(imei){
-        var numOrden = $("#lblNumOrden").html();
-        alert("el txtImei1 es : " + imei);
-        alert("el valor es : " + numOrden);
-        $("#hdnMetodo").val("buscarCliente");
-        var url_server = "${pageContext.request.contextPath}/requestservlet";
-        var parametros = "ordenId="+numOrden+"&imei="+imei;
-        jQuery.ajax({
-            type: "POST",
-            url: url_server,
-            data: parametros,
-            dataType: "json",
-            async: false,
-            cache: false,
-            success: function (response) {
-                
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                fxValidarErroresAjax(jqXHR, textStatus);
-      
-            }
-        });    
-    }
-
-    function fxValidarErroresAjax(jqXHR, textStatus) {
-        if (jqXHR.status === 0) {
-            alert("No hay conexión, verificar.");
-        } else if (jqXHR.status == 404) {
-            alert("Página no encontrada [404].");
-        } else if (jqXHR.status == 500) {
-            alert("Error Interno [500].");
-        } else if (textStatus === 'parsererror') {
-            alert("Error de conversion JSON");
-        } else if (textStatus === 'timeout') {
-            alert("Tiempo de esperado excedido.");
-        } else if (textStatus === 'abort') {
-            alert("Solicitud Ajax abortada");
-        } else {
-            alert("Error inesperado: " + jqXHR.responseText);
-
-        }
-    }
-    
+   
     //INICIO JGABRIEL REQ-0123
     function myAlert(data) {
     alert(data);
@@ -546,8 +504,8 @@
               //document.getElementById('cmbProductStatus').disabled = false;
           } 
           
-      }
-      
+      }      
+   
  </script>
 </head>
 
@@ -912,9 +870,9 @@
                             tabla =tabla+" <input type='hidden' id='txtIdEquipment"+filas+"' name='txtIdEquipment"+filas+"' value='"+idDevice+"' />";
                             tabla =tabla+" <input type='hidden' id='txtIdOrganitation_"+filas+"' name='txtIdOrganitation_"+filas+"' value='"+idOrganization+"' />";
                             if(filas==0){
-                                  tabla =tabla+"<input type='radio' value='"+filas+"' name='item_imei_radio' checked/>";                                  
+                                  tabla =tabla+"<input type='radio' value='"+filas+"' name='item_imei_radio' id='item_imei_radio' checked/>";                                  
                             }else{
-                                  tabla =tabla+"<input type='radio' value='"+filas+"' name='item_imei_radio'/>";
+                                  tabla =tabla+"<input type='radio' value='"+filas+"' name='item_imei_radio' id='item_imei_radio' />";
                             }                       
 												
 												tabla =tabla+"<input type='text' id='item_imei_num_"+filas+"'  name='item_imei_num_"+filas+"' value='"+cadena+"' size='2' readonly>";
@@ -1768,6 +1726,105 @@
       }
     }
 
+    function validarRegularizarOrdenOutdoor(){
+        var respuestaVal = false;
+        var indiceImei = $("#item_imei_radio").val();
+        var idReqItem = "#txtReqOlItemId"+indiceImei;
+        var reqOlItemId = $(idReqItem).val();
+        var imei = $("#txtImeis").val();
+        var numOrden = $("#lblNumOrden").html();
+
+        var url_server = "${pageContext.request.contextPath}/requestservlet";
+        var parametros = "ordenId="+numOrden+
+                         "&imei="+imei+
+                         "&METHOD=VALIDAR_REGULARIZAR_ORDEN_OUTDOOR";
+        jQuery.ajax({
+            type: "POST",
+            url: url_server,
+            data: parametros,
+            dataType: "json",
+            async: false,
+            cache: false,
+            success: function (response) {
+                
+                if (response.errorCodigo == "0") {
+                    respuestaVal = true;
+                }
+                if(response.errorCodigo=="-1" || response.errorCodigo=="2" ){
+                   var mensaje = response.errorMensaje;
+                   respuestaVal = false;
+                                
+                }
+                if(response.errorCodigo=="1"){
+                    var mensaje = response.errorMensaje;
+                    mensaje = mensaje.replace(/\|/g, "\n");
+                    var respuesta = confirm(mensaje);
+                    if(respuesta){
+                       regularizarOrdenOutdoor(response.almacenId);
+                       respuestaVal = true;
+                    }else{
+                       respuestaVal = false;
+                    }
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                fxValidarErroresAjax(jqXHR, textStatus);
+                respuestaVal = false;
+      
+            }
+        }); 
+        return respuestaVal;
+    }
+
+    function regularizarOrdenOutdoor(imei,almacenId){
+        var creadoPor ='<%=strLogin%>'; 
+        var imei = $("#txtImeis").val();
+        var numOrden = $("#lblNumOrden").html();
+        var url_server = "${pageContext.request.contextPath}/requestservlet";
+        var parametros = "ordenId="+numOrden+
+                         "&imei="+imei+
+                         "&almacenId="+almacenId+
+                         "&creadoPor="+creadoPor+
+                         "&METHOD=REGULARIZAR_ORDEN_OUTDOOR";
+        jQuery.ajax({
+            type: "POST",
+            url: url_server,
+            data: parametros,
+            dataType: "json",
+            async: false,
+            cache: false,
+            success: function (response) {
+                if (response.errorCodigo == "0") {
+                    alert("Se actualizó orden correctamente.");                   
+                }else{
+                    alert(response.errorMensaje);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                fxValidarErroresAjax(jqXHR, textStatus);
+      
+            }
+        });    
+    }
+    
+    function fxValidarErroresAjax(jqXHR, textStatus) {
+        if (jqXHR.status === 0) {
+            alert("No hay conexión, verificar.");
+        } else if (jqXHR.status == 404) {
+            alert("Página no encontrada [404].");
+        } else if (jqXHR.status == 500) {
+            alert("Error Interno [500].");
+        } else if (textStatus === 'parsererror') {
+            alert("Error de conversion JSON");
+        } else if (textStatus === 'timeout') {
+            alert("Tiempo de esperado excedido.");
+        } else if (textStatus === 'abort') {
+            alert("Solicitud Ajax abortada");
+        } else {
+            alert("Error inesperado: " + jqXHR.responseText);
+
+        }
+    }   
    
 </script>
   
