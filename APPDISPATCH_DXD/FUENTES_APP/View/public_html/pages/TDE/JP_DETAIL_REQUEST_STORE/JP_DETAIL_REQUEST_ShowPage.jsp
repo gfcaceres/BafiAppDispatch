@@ -1749,6 +1749,7 @@
                 }
                 if(response.errorCodigo=="-1" || response.errorCodigo=="2" ){
                    var mensaje = response.errorMensaje;
+                   alert(mensaje);
                    respuestaVal = false;
                                 
                 }

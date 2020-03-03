@@ -1013,6 +1013,16 @@
          <value n="ejb:a2923833-0170-1000-8120-c0a8de61981e" v="SEJBRequestTDE"/>
          <value n="ejb:a2923833-0170-1000-8121-c0a8de61981e" v="SEJBGeneralTDE"/>
          <value n="ejb:a2923833-0170-1000-8122-c0a8de61981e" v="SEJBBafiOutdoor"/>
+         <value n="ejb:a292d4e6-0170-1000-8123-c0a8de61981e" v="SEJBRequest"/>
+         <value n="ejb:a292d4e6-0170-1000-8124-c0a8de61981e" v="SEJBGeneral"/>
+         <value n="ejb:a292d4e7-0170-1000-8125-c0a8de61981e" v="SEJBSession"/>
+         <value n="ejb:a292d4e7-0170-1000-8126-c0a8de61981e" v="SEJBRequestManual"/>
+         <value n="ejb:a292d4e7-0170-1000-8127-c0a8de61981e" v="SEJBCompany"/>
+         <value n="ejb:a292d4e7-0170-1000-8128-c0a8de61981e" v="SEJBItem"/>
+         <value n="ejb:a292d4e7-0170-1000-8129-c0a8de61981e" v="SEJBRequestManualTDE"/>
+         <value n="ejb:a292d4e7-0170-1000-812a-c0a8de61981e" v="SEJBRequestTDE"/>
+         <value n="ejb:a292d4e7-0170-1000-812b-c0a8de61981e" v="SEJBGeneralTDE"/>
+         <value n="ejb:a292d4e8-0170-1000-812c-c0a8de61981e" v="SEJBBafiOutdoor"/>
          <value n="ejb:a7e68f94-013f-1000-8001-ac1509633084" v="SEJBRequest"/>
          <value n="ejb:a7e68fa4-013f-1000-8002-ac1509633084" v="SEJBGeneral"/>
          <value n="ejb:a7e68fa4-013f-1000-8003-ac1509633084" v="SEJBSession"/>
