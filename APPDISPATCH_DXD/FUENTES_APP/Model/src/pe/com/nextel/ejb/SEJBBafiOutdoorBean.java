@@ -1,5 +1,8 @@
 package pe.com.nextel.ejb;
 
+import java.sql.SQLException;
+
+import java.util.HashMap;
 import java.util.List;
 
 import javax.ejb.EJBException;
@@ -8,6 +11,7 @@ import javax.ejb.SessionContext;
 
 import org.apache.log4j.Logger;
 
+import pe.com.nextel.bean.CompanyBean;
 import pe.com.nextel.bean.InstalacionBean;
 import pe.com.nextel.bean.estadoinstalacion.MotivoBean;
 import pe.com.nextel.dao.BafiOutdoorDAO;
@@ -100,5 +104,25 @@ public class SEJBBafiOutdoorBean implements SessionBean {
             return false;
         }
         return true;
-    }    
+    }
+    
+    public HashMap validarRegularizarOrdenOutdoor(Long ordenId, String imei) throws  SQLException, Exception{
+      logger.info("[SEJBBafiOutdoorBean][validarRegularizarOrdenOutdoor] Inicio");
+      logger.info("[SEJBBafiOutdoorBean][validarRegularizarOrdenOutdoor] entrada ordenId["+ordenId+"]");        
+      logger.info("[SEJBBafiOutdoorBean][validarRegularizarOrdenOutdoor] entrada imei["+imei+"]");        
+      HashMap hshDataMap =  bafiOutdoorDAO.validarRegularizarOrdenOutdoor(ordenId, imei);
+      logger.info("[SEJBBafiOutdoorBean][validarRegularizarOrdenOutdoor] salida " + hshDataMap.toString());
+      logger.info("[SEJBBafiOutdoorBean][validarRegularizarOrdenOutdoor] fin");
+      return hshDataMap;
+    }
+    
+    public void regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor)throws UserException {
+       logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Inicio");
+       logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Entrada numOrderId["+ordenId+"]");
+       logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Entrada imei["+imei+"]");
+       logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Entrada almacenId["+almacenId+"]");
+       logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Entrada creadoPor["+creadoPor+"]");       
+       bafiOutdoorDAO.regularizarOrdenOutdoor( ordenId, imei, almacenId, creadoPor);
+       logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Fin");
+    }  
 }

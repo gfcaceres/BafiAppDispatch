@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 
+import java.util.HashMap;
 import java.util.List;
 
 import oracle.jdbc.OracleCallableStatement;
@@ -17,6 +18,7 @@ import org.apache.log4j.Logger;
 
 import pe.com.nextel.bean.estadoinstalacion.MotivoBean;
 import pe.com.nextel.exception.UserException;
+import pe.com.nextel.util.Constante;
 
 public class BafiOutdoorDAO extends GenericDAO {
     
@@ -147,5 +149,91 @@ public class BafiOutdoorDAO extends GenericDAO {
         }
         return strDescription;
 
-    }    
+    }  
+    
+    public HashMap validarRegularizarOrdenOutdoor(Long ordenId, String imei) throws UserException {
+        logger.debug("[BafiOutdoorDAO][validarRegularizarOrdenOutdoor] Inicio");
+        logger.debug("[BafiOutdoorDAO][validarRegularizarOrdenOutdoor] Entrada numOrderId["+ordenId+"]");
+        logger.debug("[BafiOutdoorDAO][validarRegularizarOrdenOutdoor] Entrada imei["+imei+"]");
+        
+        Connection conn         = null;
+        OracleCallableStatement cstmt = null;
+        HashMap hshDataMap = new HashMap();
+       
+        try {
+            String strSql = "BEGIN ORDERS.PKG_SC_ORDERS44.SP_SC_CA_GET_BAFI_OUTDOOR( ?, ?, ?, ?, ?); END; " ;
+
+            conn =  Proveedor.getConnection();
+            cstmt = (OracleCallableStatement) conn.prepareCall(strSql);
+            cstmt.setLong(1, ordenId);
+            cstmt.setString(2, imei);
+            cstmt.registerOutParameter(3, Types.NUMERIC);
+            cstmt.registerOutParameter(4, OracleTypes.VARCHAR);
+            cstmt.registerOutParameter(5, OracleTypes.VARCHAR);
+            
+            cstmt.executeQuery();
+            
+            hshDataMap.put("ordenId", ordenId);
+            hshDataMap.put("imei", imei);
+            hshDataMap.put("errorCodigo", cstmt.getInt(3));
+            hshDataMap.put("errorMensaje", cstmt.getInt(4));
+            hshDataMap.put("almacenId", cstmt.getInt(4));
+            
+        } catch (Exception e) {
+            throw new UserException(e);
+        } finally {
+            try {
+                closeObjectsDatabase(conn,cstmt, null);
+            } catch (Exception e) {
+                throw new UserException(e);
+            }
+        }
+        logger.debug("[BafiOutdoorDAO][validarRegularizarOrdenOutdoor] Salida validInstalacionEdit["+ hshDataMap.toString() +"]");
+        logger.debug("[BafiOutdoorDAO][validarRegularizarOrdenOutdoor] Fin");
+        
+        return hshDataMap;
+    }
+
+    public void regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor) throws UserException{
+        logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Inicio");
+        logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Entrada numOrderId["+ordenId+"]");
+        logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Entrada imei["+imei+"]");
+        logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Entrada almacenId["+almacenId+"]");
+        logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Entrada creadoPor["+creadoPor+"]");
+        Connection conn         = null;
+        OracleCallableStatement cstmt = null;
+        Integer errorCodigo = null;
+        
+        try {
+            String strSql = "BEGIN ORDERS.PKG_SC_ORDERS44.SP_SC_CA_UPD_BAFI_OUTDOOR( ?, ?, ?, ?, ?, ?); END; " ;
+
+            conn =  Proveedor.getConnection();
+            cstmt = (OracleCallableStatement) conn.prepareCall(strSql);
+            cstmt.setLong(1, ordenId);
+            cstmt.setString(2, imei);
+            cstmt.registerOutParameter(3, Types.VARCHAR);
+            cstmt.registerOutParameter(4, OracleTypes.VARCHAR);
+            cstmt.registerOutParameter(5, Types.NUMERIC);
+            cstmt.registerOutParameter(6, OracleTypes.VARCHAR);
+            
+            cstmt.executeQuery();
+            errorCodigo = cstmt.getInt(5);
+            
+            if(errorCodigo!=0){
+                throw new UserException(cstmt.getString(6));
+            }
+            
+        } catch (Exception e) {
+            throw new UserException(e);
+        } finally {
+            try {
+                closeObjectsDatabase(conn,cstmt, null);
+            } catch (Exception e) {
+                throw new UserException(e);
+            }
+        }
+        logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Salida validInstalacionEdit["+ errorCodigo +"]");
+        logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Fin");
+        
+    }
 }

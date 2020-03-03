@@ -1,5 +1,6 @@
 package pe.com.nextel.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.naming.Context;
@@ -95,5 +96,24 @@ public class BafiOutdoorService extends GenericService{
         }
         
         return instalacionBean;
+    }
+    
+    public HashMap validarRegularizarOrdenOutdoor(Long ordenId, String imei){
+        HashMap hshDataMap = new HashMap();
+        try{
+          hshDataMap = getSEJBRemote().validarRegularizarOrdenOutdoor(ordenId, imei);           
+        } catch(Exception e){
+            logger.error("[BafiOutdoorService][validarRegularizarOrdenOutdoor] Error inesperado",e);
+        }
+        
+        return hshDataMap;
+    }
+    
+    public void regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor){
+        try{
+          getSEJBRemote().regularizarOrdenOutdoor(ordenId, imei, almacenId, creadoPor);           
+        } catch(Exception e){
+            logger.error("[BafiOutdoorService][validarRegularizarOrdenOutdoor] Error inesperado",e);
+        }
     }
 }
