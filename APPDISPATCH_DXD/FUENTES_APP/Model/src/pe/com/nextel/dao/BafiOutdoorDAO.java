@@ -172,12 +172,10 @@ public class BafiOutdoorDAO extends GenericDAO {
             cstmt.registerOutParameter(5, OracleTypes.VARCHAR);
             
             cstmt.executeQuery();
-            
-            hshDataMap.put("ordenId", ordenId);
-            hshDataMap.put("imei", imei);
+           
             hshDataMap.put("errorCodigo", cstmt.getInt(3));
-            hshDataMap.put("errorMensaje", cstmt.getInt(4));
-            hshDataMap.put("almacenId", cstmt.getInt(4));
+            hshDataMap.put("errorMensaje", cstmt.getString(4));
+            hshDataMap.put("almacenId", cstmt.getString(5));
             
         } catch (Exception e) {
             throw new UserException(e);
@@ -194,7 +192,7 @@ public class BafiOutdoorDAO extends GenericDAO {
         return hshDataMap;
     }
 
-    public void regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor) throws UserException{
+    public HashMap regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor) throws UserException{
         logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Inicio");
         logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Entrada numOrderId["+ordenId+"]");
         logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Entrada imei["+imei+"]");
@@ -203,6 +201,7 @@ public class BafiOutdoorDAO extends GenericDAO {
         Connection conn         = null;
         OracleCallableStatement cstmt = null;
         Integer errorCodigo = null;
+        HashMap hshDataMap = new HashMap();
         
         try {
             String strSql = "BEGIN ORDERS.PKG_SC_ORDERS44.SP_SC_CA_UPD_BAFI_OUTDOOR( ?, ?, ?, ?, ?, ?); END; " ;
@@ -221,6 +220,9 @@ public class BafiOutdoorDAO extends GenericDAO {
             
             if(errorCodigo!=0){
                 throw new UserException(cstmt.getString(6));
+            }else{
+                hshDataMap.put("errorCodigo", cstmt.getInt(5));
+                hshDataMap.put("errorMensaje", cstmt.getString(6));
             }
             
         } catch (Exception e) {
@@ -232,8 +234,8 @@ public class BafiOutdoorDAO extends GenericDAO {
                 throw new UserException(e);
             }
         }
-        logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Salida validInstalacionEdit["+ errorCodigo +"]");
+        logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Salida validInstalacionEdit["+ hshDataMap.toString() +"]");
         logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Fin");
-        
+        return hshDataMap;        
     }
 }
