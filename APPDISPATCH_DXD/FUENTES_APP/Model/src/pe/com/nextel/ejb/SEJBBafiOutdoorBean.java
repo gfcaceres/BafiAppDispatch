@@ -106,23 +106,20 @@ public class SEJBBafiOutdoorBean implements SessionBean {
         return true;
     }
     
-    public HashMap validarRegularizarOrdenOutdoor(Long ordenId, String imei) throws  UserException, Exception{
+    public HashMap validarRegularizarOrdenOutdoor(Long ordenId, String imei,Long reqOlItemId) throws  UserException, Exception{
       logger.info("[SEJBBafiOutdoorBean][validarRegularizarOrdenOutdoor] Inicio");
-      logger.info("[SEJBBafiOutdoorBean][validarRegularizarOrdenOutdoor] entrada ordenId["+ordenId+"]");        
-      logger.info("[SEJBBafiOutdoorBean][validarRegularizarOrdenOutdoor] entrada imei["+imei+"]");        
-      HashMap hshDataMap =  bafiOutdoorDAO.validarRegularizarOrdenOutdoor(ordenId, imei);
+      logger.info("[SEJBBafiOutdoorBean][validarRegularizarOrdenOutdoor] entrada ordenId["+ordenId+"], imei["+imei+"], reqOlItemId["+reqOlItemId+"]");        
+      HashMap hshDataMap =  bafiOutdoorDAO.validarRegularizarOrdenOutdoor(ordenId, imei,reqOlItemId);
       logger.info("[SEJBBafiOutdoorBean][validarRegularizarOrdenOutdoor] salida " + hshDataMap.toString());
       logger.info("[SEJBBafiOutdoorBean][validarRegularizarOrdenOutdoor] fin");
       return hshDataMap;
     }
     
-    public HashMap regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor)throws UserException {
+    public HashMap regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor,Long reqOlItemId)throws UserException {
        logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Inicio");
-       logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Entrada numOrderId["+ordenId+"]");
-       logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Entrada imei["+imei+"]");
-       logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Entrada almacenId["+almacenId+"]");
-       logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Entrada creadoPor["+creadoPor+"]");       
-       HashMap hshDataMap = bafiOutdoorDAO.regularizarOrdenOutdoor( ordenId, imei, almacenId, creadoPor);
+       logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Entrada numOrderId["+ordenId+"], imei["+imei+"], almacenId["+almacenId+"],  creadoPor["+creadoPor+"], reqOlItemId["+reqOlItemId+"]");
+       HashMap hshDataMap = bafiOutdoorDAO.regularizarOrdenOutdoor( ordenId, imei, almacenId, creadoPor, reqOlItemId);
+       logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] salida " + hshDataMap.toString());
        logger.info("[SEJBBafiOutdoorBean][regularizarOrdenOutdoor] Fin");
        return hshDataMap;
     }  

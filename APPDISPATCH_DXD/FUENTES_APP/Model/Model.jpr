@@ -993,6 +993,26 @@
          <value n="ejb:a1f59796-0170-1000-810c-c0a8de61981e" v="SEJBRequestTDE"/>
          <value n="ejb:a1f59796-0170-1000-810d-c0a8de61981e" v="SEJBGeneralTDE"/>
          <value n="ejb:a1f59796-0170-1000-810e-c0a8de61981e" v="SEJBBafiOutdoor"/>
+         <value n="ejb:a26f0ad3-0170-1000-810f-c0a8de61981e" v="SEJBRequest"/>
+         <value n="ejb:a26f0ad3-0170-1000-8110-c0a8de61981e" v="SEJBGeneral"/>
+         <value n="ejb:a26f0ad3-0170-1000-8111-c0a8de61981e" v="SEJBSession"/>
+         <value n="ejb:a26f0ad3-0170-1000-8112-c0a8de61981e" v="SEJBRequestManual"/>
+         <value n="ejb:a26f0ad4-0170-1000-8113-c0a8de61981e" v="SEJBCompany"/>
+         <value n="ejb:a26f0ad4-0170-1000-8114-c0a8de61981e" v="SEJBItem"/>
+         <value n="ejb:a26f0ad4-0170-1000-8115-c0a8de61981e" v="SEJBRequestManualTDE"/>
+         <value n="ejb:a26f0ad4-0170-1000-8116-c0a8de61981e" v="SEJBRequestTDE"/>
+         <value n="ejb:a26f0ad4-0170-1000-8117-c0a8de61981e" v="SEJBGeneralTDE"/>
+         <value n="ejb:a26f0ad4-0170-1000-8118-c0a8de61981e" v="SEJBBafiOutdoor"/>
+         <value n="ejb:a2923832-0170-1000-8119-c0a8de61981e" v="SEJBRequest"/>
+         <value n="ejb:a2923832-0170-1000-811a-c0a8de61981e" v="SEJBGeneral"/>
+         <value n="ejb:a2923832-0170-1000-811b-c0a8de61981e" v="SEJBSession"/>
+         <value n="ejb:a2923833-0170-1000-811c-c0a8de61981e" v="SEJBRequestManual"/>
+         <value n="ejb:a2923833-0170-1000-811d-c0a8de61981e" v="SEJBCompany"/>
+         <value n="ejb:a2923833-0170-1000-811e-c0a8de61981e" v="SEJBItem"/>
+         <value n="ejb:a2923833-0170-1000-811f-c0a8de61981e" v="SEJBRequestManualTDE"/>
+         <value n="ejb:a2923833-0170-1000-8120-c0a8de61981e" v="SEJBRequestTDE"/>
+         <value n="ejb:a2923833-0170-1000-8121-c0a8de61981e" v="SEJBGeneralTDE"/>
+         <value n="ejb:a2923833-0170-1000-8122-c0a8de61981e" v="SEJBBafiOutdoor"/>
          <value n="ejb:a7e68f94-013f-1000-8001-ac1509633084" v="SEJBRequest"/>
          <value n="ejb:a7e68fa4-013f-1000-8002-ac1509633084" v="SEJBGeneral"/>
          <value n="ejb:a7e68fa4-013f-1000-8003-ac1509633084" v="SEJBSession"/>

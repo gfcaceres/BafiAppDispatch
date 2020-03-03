@@ -1737,6 +1737,7 @@
         var url_server = "${pageContext.request.contextPath}/requestservlet";
         var parametros = "ordenId="+numOrden+
                          "&imei="+imei+
+                         "&reqOlItemId"+reqOlItemId+
                          "&METHOD=VALIDAR_REGULARIZAR_ORDEN_OUTDOOR";
         jQuery.ajax({
             type: "POST",
@@ -1785,6 +1786,7 @@
                          "&imei="+imei+
                          "&almacenId="+almacenId+
                          "&creadoPor="+creadoPor+
+                         "&reqOlItemId"+reqOlItemId+
                          "&METHOD=REGULARIZAR_ORDEN_OUTDOOR";
         jQuery.ajax({
             type: "POST",

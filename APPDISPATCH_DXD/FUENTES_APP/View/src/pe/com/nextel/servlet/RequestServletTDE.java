@@ -701,6 +701,7 @@ public class RequestServletTDE extends GenericServlet {
       out.close();
     } 
     //FIN JGABRIEL REQ-0123
+    
     public void validarRegularizarOrdenOutdoor(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException{
         logger.info("[validarRegularizarOrdenOutdoor] inicio");
         BafiOutdoorService bafiOutdoorService = new BafiOutdoorService();
@@ -710,8 +711,9 @@ public class RequestServletTDE extends GenericServlet {
         
         Long ordenId = Long.parseLong(request.getParameter("ordenId"));
         String imei     = request.getParameter("imei");
+        Long reqOlItemId = Long.parseLong(request.getParameter("reqOlItemId"));
         
-        respuesta = bafiOutdoorService.validarRegularizarOrdenOutdoor(ordenId, imei);
+        respuesta = bafiOutdoorService.validarRegularizarOrdenOutdoor(ordenId, imei,reqOlItemId);
 
         response.setContentType("text/json");
         response.setCharacterEncoding("UTF-8");
@@ -733,8 +735,9 @@ public class RequestServletTDE extends GenericServlet {
         String imei     = request.getParameter("imei");
         String almacenId = request.getParameter("almacenId");
         String creadoPor = request.getParameter("creadoPor");
+        Long reqOlItemId = Long.parseLong(request.getParameter("reqOlItemId"));
         
-        respuesta = bafiOutdoorService.regularizarOrdenOutdoor(ordenId, imei,almacenId,creadoPor);
+        respuesta = bafiOutdoorService.regularizarOrdenOutdoor(ordenId, imei,almacenId,creadoPor,reqOlItemId);
 
         response.setContentType("text/json");
         response.setCharacterEncoding("UTF-8");

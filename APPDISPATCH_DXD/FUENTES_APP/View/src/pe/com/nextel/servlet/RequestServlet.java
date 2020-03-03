@@ -702,8 +702,9 @@ public class RequestServlet extends GenericServlet {
         
         Long ordenId = Long.parseLong(request.getParameter("ordenId"));
         String imei     = request.getParameter("imei");
+        Long reqOlItemId = Long.parseLong(request.getParameter("reqOlItemId"));
         
-        respuesta = bafiOutdoorService.validarRegularizarOrdenOutdoor(ordenId, imei);
+        respuesta = bafiOutdoorService.validarRegularizarOrdenOutdoor(ordenId, imei,reqOlItemId);
 
         response.setContentType("text/json");
         response.setCharacterEncoding("UTF-8");
@@ -725,8 +726,9 @@ public class RequestServlet extends GenericServlet {
         String imei     = request.getParameter("imei");
         String almacenId = request.getParameter("almacenId");
         String creadoPor = request.getParameter("creadoPor");
+        Long reqOlItemId = Long.parseLong(request.getParameter("reqOlItemId"));
         
-        respuesta = bafiOutdoorService.regularizarOrdenOutdoor(ordenId, imei,almacenId,creadoPor);
+        respuesta = bafiOutdoorService.regularizarOrdenOutdoor(ordenId, imei,almacenId,creadoPor,reqOlItemId);
 
         response.setContentType("text/json");
         response.setCharacterEncoding("UTF-8");

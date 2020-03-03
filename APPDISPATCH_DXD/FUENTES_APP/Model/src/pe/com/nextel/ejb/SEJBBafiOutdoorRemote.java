@@ -20,6 +20,6 @@ public interface SEJBBafiOutdoorRemote extends EJBObject {
     boolean validarInstalacionEdit(Long numOrderId) throws UserException,RemoteException;
     InstalacionBean obtenerInstalacionPorOrdenId(long ordenId)  throws UserException,RemoteException;
     boolean validarProcesoBafiActivo() throws UserException,RemoteException;
-    HashMap validarRegularizarOrdenOutdoor(Long ordenId, String imei) throws UserException,RemoteException;
-    HashMap regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor)throws UserException,RemoteException;
+    HashMap validarRegularizarOrdenOutdoor(Long ordenId, String imei,Long reqOlItemId) throws UserException,RemoteException;
+    HashMap regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor,Long reqOlItemId)throws UserException,RemoteException;
 }

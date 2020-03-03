@@ -98,10 +98,10 @@ public class BafiOutdoorService extends GenericService{
         return instalacionBean;
     }
     
-    public HashMap validarRegularizarOrdenOutdoor(Long ordenId, String imei){
+    public HashMap validarRegularizarOrdenOutdoor(Long ordenId, String imei,Long reqOlItemId){
         HashMap hshDataMap = new HashMap();
         try{
-          hshDataMap = getSEJBRemote().validarRegularizarOrdenOutdoor(ordenId, imei);           
+          hshDataMap = getSEJBRemote().validarRegularizarOrdenOutdoor(ordenId, imei,reqOlItemId);           
         } catch(Exception e){
             hshDataMap.put("errorCodigo", "0");
             logger.error("[BafiOutdoorService][validarRegularizarOrdenOutdoor] Error inesperado",e);            
@@ -110,10 +110,10 @@ public class BafiOutdoorService extends GenericService{
         return hshDataMap;
     }
     
-    public HashMap regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor){
+    public HashMap regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor,Long reqOlItemId){
         HashMap hshDataMap = new HashMap();
         try{
-          hshDataMap = getSEJBRemote().regularizarOrdenOutdoor(ordenId, imei, almacenId, creadoPor);           
+          hshDataMap = getSEJBRemote().regularizarOrdenOutdoor(ordenId, imei, almacenId, creadoPor,reqOlItemId);           
         } catch(Exception e){
             logger.error("[BafiOutdoorService][validarRegularizarOrdenOutdoor] Error inesperado",e);
         }

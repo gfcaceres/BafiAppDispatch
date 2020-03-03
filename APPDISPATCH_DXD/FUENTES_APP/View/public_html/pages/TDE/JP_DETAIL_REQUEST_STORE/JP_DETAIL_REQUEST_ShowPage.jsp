@@ -866,9 +866,9 @@
                             tabla =tabla+" <input type='hidden' id='txtIdEquipment"+filas+"' name='txtIdEquipment"+filas+"' value='"+idDevice+"' />";
                             tabla =tabla+" <input type='hidden' id='txtIdOrganitation_"+filas+"' name='txtIdOrganitation_"+filas+"' value='"+idOrganization+"' />";
                             if(filas==0){
-                                  tabla =tabla+"<input type='radio' value='"+filas+"' name='item_imei_radio' checked/>";                                  
+                                  tabla =tabla+"<input type='radio' value='"+filas+"' name='item_imei_radio' id='item_imei_radio' checked/>";                                  
                             }else{
-                                  tabla =tabla+"<input type='radio' value='"+filas+"' name='item_imei_radio'/>";
+                                  tabla =tabla+"<input type='radio' value='"+filas+"' name='item_imei_radio' id='item_imei_radio' />";
                             }                       
 												
 												tabla =tabla+"<input type='text' id='item_imei_num_"+filas+"'  name='item_imei_num_"+filas+"' value='"+cadena+"' size='2' readonly>";
@@ -1724,12 +1724,16 @@
  
     function validarRegularizarOrdenOutdoor(){
         var respuestaVal = false;
+        var indiceImei = $("#item_imei_radio").val();
+        var idReqItem = "#txtReqOlItemId"+indiceImei;
+        var reqOlItemId = $(idReqItem).val();
         var imei = $("#txtImeis").val();
         var numOrden = $("#lblNumOrden").html();
 
         var url_server = "${pageContext.request.contextPath}/requestservlet";
         var parametros = "ordenId="+numOrden+
                          "&imei="+imei+
+                         "&reqOlItemId"+reqOlItemId+
                          "&METHOD=VALIDAR_REGULARIZAR_ORDEN_OUTDOOR";
         jQuery.ajax({
             type: "POST",
@@ -1778,6 +1782,7 @@
                          "&imei="+imei+
                          "&almacenId="+almacenId+
                          "&creadoPor="+creadoPor+
+                         "&reqOlItemId"+reqOlItemId+
                          "&METHOD=REGULARIZAR_ORDEN_OUTDOOR";
         jQuery.ajax({
             type: "POST",
@@ -1818,6 +1823,7 @@
 
         }
     }    
+   
 </script>
   
 </html>

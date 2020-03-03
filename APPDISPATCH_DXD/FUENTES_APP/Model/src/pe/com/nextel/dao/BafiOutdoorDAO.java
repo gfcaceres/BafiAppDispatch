@@ -151,7 +151,7 @@ public class BafiOutdoorDAO extends GenericDAO {
 
     }  
     
-    public HashMap validarRegularizarOrdenOutdoor(Long ordenId, String imei) throws UserException {
+    public HashMap validarRegularizarOrdenOutdoor(Long ordenId, String imei,Long reqOlItemId) throws UserException {
         logger.debug("[BafiOutdoorDAO][validarRegularizarOrdenOutdoor] Inicio");
         logger.debug("[BafiOutdoorDAO][validarRegularizarOrdenOutdoor] Entrada numOrderId["+ordenId+"]");
         logger.debug("[BafiOutdoorDAO][validarRegularizarOrdenOutdoor] Entrada imei["+imei+"]");
@@ -163,20 +163,21 @@ public class BafiOutdoorDAO extends GenericDAO {
         String errorMensaje = null;
         String almacenId  = null;
         try {
-            String strSql = "BEGIN ORDERS.PKG_SC_ORDERS44.SP_SC_CA_GET_BAFI_OUTDOOR( ?, ?, ?, ?, ?); END; " ;
+            String strSql = "BEGIN ORDERS.PKG_SC_ORDERS44.SP_SC_CA_GET_BAFI_OUTDOOR( ?, ?, ?, ?, ?, ?); END; " ;
 
             conn =  Proveedor.getConnection();
             cstmt = (OracleCallableStatement) conn.prepareCall(strSql);
             cstmt.setLong(1, ordenId);
             cstmt.setString(2, imei);
-            cstmt.registerOutParameter(3, Types.NUMERIC);
-            cstmt.registerOutParameter(4, OracleTypes.VARCHAR);
+            cstmt.setLong(3, reqOlItemId);
+            cstmt.registerOutParameter(4, Types.NUMERIC);
             cstmt.registerOutParameter(5, OracleTypes.VARCHAR);
+            cstmt.registerOutParameter(6, OracleTypes.VARCHAR);
             
             cstmt.executeQuery();
-            errorCodigo = cstmt.getInt(3);
-            errorMensaje = cstmt.getString(4);
-            almacenId =  cstmt.getString(5);
+            errorCodigo = cstmt.getInt(4);
+            errorMensaje = cstmt.getString(5);
+            almacenId =  cstmt.getString(6);
             
             hshDataMap.put("errorCodigo", errorCodigo);
             hshDataMap.put("errorMensaje",errorMensaje);
@@ -197,7 +198,7 @@ public class BafiOutdoorDAO extends GenericDAO {
         return hshDataMap;
     }
 
-    public HashMap regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor) throws UserException{
+    public HashMap regularizarOrdenOutdoor(Long ordenId, String imei, String almacenId, String creadoPor,Long reqOlItemId) throws UserException{
         logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Inicio");
         logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Entrada numOrderId["+ordenId+"]");
         logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Entrada imei["+imei+"]");
@@ -210,20 +211,21 @@ public class BafiOutdoorDAO extends GenericDAO {
         HashMap hshDataMap = new HashMap();
         
         try {
-            String strSql = "BEGIN ORDERS.PKG_SC_ORDERS44.SP_SC_CA_UPD_BAFI_OUTDOOR( ?, ?, ?, ?, ?, ?); END; " ;
+            String strSql = "BEGIN ORDERS.PKG_SC_ORDERS44.SP_SC_CA_UPD_BAFI_OUTDOOR( ?, ?, ?, ?, ?, ? ,?); END; " ;
 
             conn =  Proveedor.getConnection();
             cstmt = (OracleCallableStatement) conn.prepareCall(strSql);
             cstmt.setLong(1, ordenId);
             cstmt.setString(2, imei);
-            cstmt.registerOutParameter(3, Types.VARCHAR);
-            cstmt.registerOutParameter(4, OracleTypes.VARCHAR);
-            cstmt.registerOutParameter(5, Types.NUMERIC);
-            cstmt.registerOutParameter(6, OracleTypes.VARCHAR);
+            cstmt.setLong(3, reqOlItemId);
+            cstmt.setString(4, almacenId);
+            cstmt.setString(5, creadoPor);
+            cstmt.registerOutParameter(6, Types.NUMERIC);
+            cstmt.registerOutParameter(7, OracleTypes.VARCHAR);
             
             cstmt.executeQuery();
-            errorCodigo = cstmt.getInt(5);
-            errorMensaje = cstmt.getString(6);
+            errorCodigo = cstmt.getInt(6);
+            errorMensaje = cstmt.getString(7);
 
             hshDataMap.put("errorCodigo", errorCodigo);
             hshDataMap.put("errorMensaje", errorMensaje);
