@@ -284,8 +284,15 @@ public class SEJBRequestBean implements SessionBean {
   }
   
   
-  public HashMap getSIM(String imei)throws  SQLException, Exception {
-      return objRequestDAO.getSIM(imei);     
+  public HashMap getSIM(String imei,Long ordenId) throws  SQLException, Exception {
+      HashMap hashData = null;
+      boolean validar= bafiOutdoorDAO.validarContratoActivoImei(ordenId, imei);
+      if(validar){
+          hashData = bafiOutdoorDAO.obtenerSimPorImei(imei); 
+      }else{
+          hashData = objRequestDAO.getSIM(imei);     
+      }
+      return hashData;
   }
   
   public HashMap validarSim(String an_nprequestolid)throws  SQLException, Exception {

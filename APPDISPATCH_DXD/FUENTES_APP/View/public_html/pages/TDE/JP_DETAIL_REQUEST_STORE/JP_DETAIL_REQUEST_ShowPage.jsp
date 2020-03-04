@@ -1733,7 +1733,7 @@
         var url_server = "${pageContext.request.contextPath}/requestservlet";
         var parametros = "ordenId="+numOrden+
                          "&imei="+imei+
-                         "&reqOlItemId"+reqOlItemId+
+                         "&reqOlItemId="+reqOlItemId+
                          "&METHOD=VALIDAR_REGULARIZAR_ORDEN_OUTDOOR";
         jQuery.ajax({
             type: "POST",
@@ -1774,16 +1774,19 @@
         return respuestaVal;
     }
 
-    function regularizarOrdenOutdoor(imei,almacenId){
+    function regularizarOrdenOutdoor(almacenId){
         var creadoPor ='<%=strLogin%>'; 
-        var imei = $("#txtImeis").val();
+        var imei = $("#txtImeis").val();        
         var numOrden = $("#lblNumOrden").html();
+        var indiceImei = $("#item_imei_radio").val();
+        var idReqItem = "#txtReqOlItemId"+indiceImei;
+        var reqOlItemId = $(idReqItem).val();       
         var url_server = "${pageContext.request.contextPath}/requestservlet";
         var parametros = "ordenId="+numOrden+
                          "&imei="+imei+
                          "&almacenId="+almacenId+
                          "&creadoPor="+creadoPor+
-                         "&reqOlItemId"+reqOlItemId+
+                         "&reqOlItemId="+reqOlItemId+
                          "&METHOD=REGULARIZAR_ORDEN_OUTDOOR";
         jQuery.ajax({
             type: "POST",

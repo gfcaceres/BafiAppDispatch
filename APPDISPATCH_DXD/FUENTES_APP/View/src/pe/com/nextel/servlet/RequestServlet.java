@@ -126,7 +126,8 @@ public class RequestServlet extends GenericServlet {
    // List listaItem = null;
     String cadena = "";
     
-    String codigoIMEI = MiUtil.trimNotNull(request.getParameter("COD_IMEI"));  
+    String codigoIMEI = MiUtil.trimNotNull(request.getParameter("COD_IMEI"));    
+    Long ordenId = Long.parseLong(request.getParameter("ordenId"));
     
     //listaItem = itemService.getImeiDet(codigoIMEI);
     hsmpResultado =  itemService.getImeiDet(codigoIMEI);
@@ -142,8 +143,9 @@ public class RequestServlet extends GenericServlet {
           cadena = ((ItemBean)listaItem.get(0)).getNpname() + "|"+((ItemBean)listaItem.get(0)).getNpsubinventorycode() + "|"+ ((ItemBean)listaItem.get(0)).getNporganizationid();
           System.out.println("cadena = " + cadena);
           
-          System.out.println("Recuperamos el SIM para el IMEI: " + codigoIMEI);          
-          HashMap mapaDatos =  requestService.getSIM(codigoIMEI);
+          System.out.println("Recuperamos el SIM para el IMEI: " + codigoIMEI);
+          
+          HashMap mapaDatos =  requestService.getSIM(codigoIMEI,ordenId);
           String strSim = (String)mapaDatos.get(Constante.SIM);
           String strMensaje = (String)mapaDatos.get(Constante.MESSAGE_OUTPUT);
           if(strMensaje != null){
@@ -624,6 +626,7 @@ public class RequestServlet extends GenericServlet {
       
       String imei = request.getParameter("COD_IMEI");
       String strRequesrId = request.getParameter("strRequesrId");
+      Long ordenId = Long.parseLong(request.getParameter("ordenId"));
       String flagValidaSim = ""; 
       String cadena = "";
       
@@ -632,7 +635,7 @@ public class RequestServlet extends GenericServlet {
       System.out.println("strRequesrId = " + strRequesrId);
       
       RequestService requestService = new RequestService();      
-      HashMap mapaDatos =  requestService.getSIM(imei);      
+      HashMap mapaDatos =  requestService.getSIM(imei,ordenId);      
       String strSim = MiUtil.trimNotNull((String)mapaDatos.get(Constante.SIM));      
       String strMensaje = (String)mapaDatos.get(Constante.MESSAGE_OUTPUT);
       

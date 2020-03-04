@@ -185,10 +185,10 @@ public class RequestService extends GenericService implements Serializable {
         return hshResultado; 
   }
   
-  public HashMap getSIM(String imei){
+  public HashMap getSIM(String imei,Long ordenId){
     HashMap hshResultado = null;
     try {
-        hshResultado = getSEJBRequestRemote().getSIM(imei);        
+        hshResultado = getSEJBRequestRemote().getSIM(imei,ordenId);        
     }catch(Throwable t){        
         logger.error(t);
     }

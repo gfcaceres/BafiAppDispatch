@@ -243,4 +243,101 @@ public class BafiOutdoorDAO extends GenericDAO {
         logger.debug("[BafiOutdoorDAO][regularizarOrdenOutdoor] Fin");
         return hshDataMap;        
     }
+
+    /**
+     * Obtiene el SIM por IMEI sin importar el estado actual del SIM
+     * @return HashMap.
+     */
+    public HashMap obtenerSimPorImei(String imei) throws UserException {
+        logger.debug("[BafiOutdoorDAO][obtenerSimPorImei] Inicio");
+        logger.debug("[BafiOutdoorDAO][obtenerSimPorImei] Entrada imei[" +
+                     imei + "]");
+        Connection conn = null;
+        OracleCallableStatement cstmt = null;
+        String errorMensaje = null;
+        String sim = null;
+        HashMap hshDataMap = new HashMap();
+        try {
+            String strSql =
+                "BEGIN ORDERS.PKG_SC_ORDERS44.SP_SC_CA_GET_IMEI_BY_SIM( ?, ?, ?); END; ";
+
+            conn = Proveedor.getConnection();
+            cstmt = (OracleCallableStatement)conn.prepareCall(strSql);
+            cstmt.setString(1, imei);
+            cstmt.registerOutParameter(2, OracleTypes.VARCHAR);
+            cstmt.registerOutParameter(3, OracleTypes.VARCHAR);
+
+            cstmt.executeQuery();
+            sim = cstmt.getString(2);
+            errorMensaje = cstmt.getString(3);
+         
+            hshDataMap.put(Constante.SIM, sim);
+            hshDataMap.put(Constante.MESSAGE_OUTPUT, errorMensaje);
+            
+        } catch (Exception e) {
+            throw new UserException(e);
+        } finally {
+            try {
+                closeObjectsDatabase(conn, cstmt, null);
+            } catch (Exception e) {
+                throw new UserException(e);
+            }
+        }
+        logger.debug("[BafiOutdoorDAO][obtenerSimPorImei] Salida sim[" + sim +
+                     "]");
+        logger.debug("[BafiOutdoorDAO][obtenerSimPorImei] Fin");
+        return hshDataMap;
+    }
+
+    /**
+     * Valida si el imei tiene un contrato activo y es una orden bafi outdoor
+     * @return HashMap.
+     */
+    public boolean validarContratoActivoImei(Long ordenId,
+                                             String imei) throws UserException {
+        logger.debug("[BafiOutdoorDAO][validarContratoActivoImei] Inicio");
+        logger.debug("[BafiOutdoorDAO][validarContratoActivoImei] Entrada ordenId[" +
+                     ordenId + "],imei[" + imei + "]");
+        Connection conn = null;
+        OracleCallableStatement cstmt = null;
+        Integer errorCodigo = null;
+        String errorMensaje = null;
+        boolean respuesta = false;
+
+        try {
+            String strSql =
+                "BEGIN ORDERS.PKG_SC_ORDERS44.SP_SC_CA_GET_BAFI_CUSTOMER( ?, ?, ?, ?); END; ";
+
+            conn = Proveedor.getConnection();
+            cstmt = (OracleCallableStatement)conn.prepareCall(strSql);
+            cstmt.setLong(1, ordenId);
+            cstmt.setString(2, imei);
+            cstmt.registerOutParameter(3, Types.NUMERIC);
+            cstmt.registerOutParameter(4, OracleTypes.VARCHAR);
+
+            cstmt.executeQuery();
+            errorCodigo = cstmt.getInt(3);
+            errorMensaje = cstmt.getString(4);
+            logger.debug("[BafiOutdoorDAO][validarContratoActivoImei] errorCodigo [" +
+                         errorCodigo + "]");
+            logger.debug("[BafiOutdoorDAO][validarContratoActivoImei] errorMensaje [" +
+                         errorMensaje + "]");
+
+            if (errorCodigo.intValue() == 1) {
+                respuesta = true;
+            }
+        } catch (Exception e) {
+            throw new UserException(e);
+        } finally {
+            try {
+                closeObjectsDatabase(conn, cstmt, null);
+            } catch (Exception e) {
+                throw new UserException(e);
+            }
+        }
+        logger.debug("[BafiOutdoorDAO][validarContratoActivoImei] Salida respuesta[" +
+                     respuesta + "]");
+        logger.debug("[BafiOutdoorDAO][validarContratoActivoImei] Fin");
+        return respuesta;
+    }
 }

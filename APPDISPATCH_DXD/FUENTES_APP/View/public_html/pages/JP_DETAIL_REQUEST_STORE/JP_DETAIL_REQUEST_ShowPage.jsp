@@ -206,7 +206,7 @@
 
     
    function obtenerSIM(){
-         
+         var ordenId = $("#lblNumOrden").html();
          var numeroSim = document.getElementById('txtSims').value; 
          var strRequesrId = '<%=strRequesrId%>';
          var imei = "";
@@ -238,7 +238,7 @@
                     cache:false,
                     type: "POST",   
                     url: '<c:out value="${pageContext.request.contextPath}"/>/requestservlet',
-                    data: "METHOD=OBTENER_SIM&COD_IMEI="+imei+"&strRequesrId="+strRequesrId,                  
+                    data: "METHOD=OBTENER_SIM&COD_IMEI="+imei+"&strRequesrId="+strRequesrId+"&ordenId="+ordenId,                  
                     success: function(cadena){                         
                     document.getElementById('imgProcesando').style.display = 'none';
                     //alert("EDU: cadena = " + cadena);
@@ -312,6 +312,7 @@
    }
     
    function validarIMEI(){
+        var ordenId = $("#lblNumOrden").html();
         var imei =  document.getElementById("txtImeis").value;
         var radio = document.frmdatos.item_imei_radio;
         var indice = 0;
@@ -344,7 +345,7 @@
                 cache:false,
                 type: "POST",   
                 url: '<c:out value="${pageContext.request.contextPath}"/>/requestservlet',
-                data: "METHOD=VALIDAR_IMEI&COD_IMEI="+imei,                  
+                data: "METHOD=VALIDAR_IMEI&COD_IMEI="+imei+"&ordenId="+ordenId,                  
                 success: function(cadena){  
                 
                   document.getElementById('imgProcesando').style.display = 'none';
@@ -1733,11 +1734,10 @@
         var reqOlItemId = $(idReqItem).val();
         var imei = $("#txtImeis").val();
         var numOrden = $("#lblNumOrden").html();
-
         var url_server = "${pageContext.request.contextPath}/requestservlet";
         var parametros = "ordenId="+numOrden+
                          "&imei="+imei+
-                         "&reqOlItemId"+reqOlItemId+
+                         "&reqOlItemId="+reqOlItemId+
                          "&METHOD=VALIDAR_REGULARIZAR_ORDEN_OUTDOOR";
         jQuery.ajax({
             type: "POST",
@@ -1778,16 +1778,19 @@
         return respuestaVal;
     }
 
-    function regularizarOrdenOutdoor(imei,almacenId){
+    function regularizarOrdenOutdoor(almacenId){
         var creadoPor ='<%=strLogin%>'; 
         var imei = $("#txtImeis").val();
+        var indiceImei = $("#item_imei_radio").val();
+        var idReqItem = "#txtReqOlItemId"+indiceImei;
+        var reqOlItemId = $(idReqItem).val();        
         var numOrden = $("#lblNumOrden").html();
         var url_server = "${pageContext.request.contextPath}/requestservlet";
         var parametros = "ordenId="+numOrden+
                          "&imei="+imei+
                          "&almacenId="+almacenId+
                          "&creadoPor="+creadoPor+
-                         "&reqOlItemId"+reqOlItemId+
+                         "&reqOlItemId="+reqOlItemId+
                          "&METHOD=REGULARIZAR_ORDEN_OUTDOOR";
         jQuery.ajax({
             type: "POST",

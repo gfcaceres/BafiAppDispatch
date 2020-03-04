@@ -40,7 +40,7 @@ public interface SEJBRequestRemote extends EJBObject {
                         String comentario,
                         Long ordenId)throws SQLException, Exception, RemoteException;
   
-  HashMap getSIM(String imei)throws SQLException, Exception, RemoteException;
+  HashMap getSIM(String imei,Long ordenId) throws SQLException, Exception, RemoteException;
   HashMap validarSim(String an_nprequestolid)throws SQLException, Exception, RemoteException;
   
   HashMap validateModelCondition(long lngRequestolid,
