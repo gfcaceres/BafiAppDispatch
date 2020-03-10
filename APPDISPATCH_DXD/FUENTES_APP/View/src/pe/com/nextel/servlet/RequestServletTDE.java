@@ -128,6 +128,7 @@ public class RequestServletTDE extends GenericServlet {
       
       String codigoIMEI = MiUtil.trimNotNull(request.getParameter("COD_IMEI"));    
       long requestId = Long.parseLong(MiUtil.trimNotNull(request.getParameter("strRequestId")));
+      Long ordenId = Long.parseLong(request.getParameter("ordenId"));
 
     //obtener flag, avchOrigin
     String flagRequestTde=requestService.getFlagRequestOlTde(requestId);

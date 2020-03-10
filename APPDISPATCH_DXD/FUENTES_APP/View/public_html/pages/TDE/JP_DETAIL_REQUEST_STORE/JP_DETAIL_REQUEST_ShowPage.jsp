@@ -204,7 +204,7 @@
 
     
    function obtenerSIM(){
-         
+         var ordenId = $("#lblNumOrden").html();
          var numeroSim = document.getElementById('txtSims').value; 
          var strRequesrId = '<%=strRequesrId%>';
          var imei = "";
@@ -236,7 +236,7 @@
                     cache:false,
                     type: "POST",   
                     url: '<c:out value="${pageContext.request.contextPath}"/>/requestservlet',
-                    data: "METHOD=OBTENER_SIM&COD_IMEI="+imei+"&strRequesrId="+strRequesrId,                  
+                    data: "METHOD=OBTENER_SIM&COD_IMEI="+imei+"&strRequesrId="+strRequesrId+"&ordenId="+ordenId,                  
                     success: function(cadena){                         
                     document.getElementById('imgProcesando').style.display = 'none';
                     //alert("EDU: cadena = " + cadena);
@@ -310,8 +310,9 @@
    }
     
    function validarIMEI(){
+        var ordenId = $("#lblNumOrden").html();
         var imei =  document.getElementById("txtImeis").value;
-		var strRequestId ='<%=headReq.getWn_requestolid()%>';
+	var strRequestId ='<%=headReq.getWn_requestolid()%>';
         var radio = document.frmdatos.item_imei_radio;
         var indice = 0;
         var i = 0;
@@ -343,7 +344,7 @@
                 cache:false,
                 type: "POST",   
                 url: '<c:out value="${pageContext.request.contextPath}"/>/requestservletTDE',
-                data: "METHOD=VALIDAR_IMEI&COD_IMEI="+imei+"&strRequestId="+strRequestId,                  
+                data: "METHOD=VALIDAR_IMEI&COD_IMEI="+imei+"&strRequestId="+strRequestId+"&ordenId="+ordenId,                  
                 success: function(cadena){  
                 
                   document.getElementById('imgProcesando').style.display = 'none';
@@ -375,31 +376,29 @@
                         }
                     }
                     //INICIO JGABRIEL REQ-0123
-                    var respuesta = validarRegularizarOrdenOutdoor();
                     
-                    if (respuesta){
-                        cadena = cadena.substr(posInicio+1);
-                        posInicio = cadena.indexOf('|');
-                        organization = cadena.slice(0,posInicio);     
-                        
-                        cadena = cadena.substr(posInicio+1);
-                        sim = cadena;
-                        
-                        document.getElementById("almacen_desc_"+indice).value = almacen;
-                        document.getElementById("subintentario_desc_"+indice).value = subinventario;  
-                        document.getElementById("txtIdOrganitation_"+indice).value = organization;   
-                        document.getElementById("imei_num_"+indice).value=imei;                    
-                        document.getElementById("txtImeis").value = "";    
-                        document.getElementById("txtSims").value = sim;                                               
-                        
-                        if( bFlag == true ){                    
-                            document.getElementById("hdnProductStatus").value = document.getElementById('cmbProductStatus').value;
-                            document.getElementById('cmbProductStatus').disabled = true;                    
-                        }
-                    }else{
-                          document.getElementById("txtImeis").value = "";
-                          document.getElementById("txtImeis").focus() ;
-                    } 
+                    //Se valida si la orden debe ser regularizada
+                    validarRegularizarOrdenOutdoor();                    
+                    
+                    cadena = cadena.substr(posInicio+1);
+                    posInicio = cadena.indexOf('|');
+                    organization = cadena.slice(0,posInicio);     
+                    
+                    cadena = cadena.substr(posInicio+1);
+                    sim = cadena;
+                    
+                    document.getElementById("almacen_desc_"+indice).value = almacen;
+                    document.getElementById("subintentario_desc_"+indice).value = subinventario;  
+                    document.getElementById("txtIdOrganitation_"+indice).value = organization;   
+                    document.getElementById("imei_num_"+indice).value=imei;                    
+                    document.getElementById("txtImeis").value = "";    
+                    document.getElementById("txtSims").value = sim;                                               
+                    
+                    if( bFlag == true ){                    
+                        document.getElementById("hdnProductStatus").value = document.getElementById('cmbProductStatus').value;
+                        document.getElementById('cmbProductStatus').disabled = true;                    
+                    }
+                    
                     
                   }
                   else{

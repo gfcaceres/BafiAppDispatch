@@ -377,31 +377,27 @@
                         }
                     }
                     //INICIO JGABRIEL REQ-0123
-                    var respuesta = validarRegularizarOrdenOutdoor();
+                    validarRegularizarOrdenOutdoor();
+                                        
+                    cadena = cadena.substr(posInicio+1);
+                    posInicio = cadena.indexOf('|');
+                    organization = cadena.slice(0,posInicio);     
                     
-                    if (respuesta){
-                        cadena = cadena.substr(posInicio+1);
-                        posInicio = cadena.indexOf('|');
-                        organization = cadena.slice(0,posInicio);     
-                        
-                        cadena = cadena.substr(posInicio+1);
-                        sim = cadena;
-                        
-                        document.getElementById("almacen_desc_"+indice).value = almacen;
-                        document.getElementById("subintentario_desc_"+indice).value = subinventario;  
-                        document.getElementById("txtIdOrganitation_"+indice).value = organization;
-                        document.getElementById("imei_num_"+indice).value=imei;                    
-                        document.getElementById("txtImeis").value = "";                        
-                        document.getElementById("txtSims").value = sim;                        
-                                                
-                        if( bFlag == true ){                        
-                            document.getElementById("hdnProductStatus").value = document.getElementById('cmbProductStatus').value;
-                            document.getElementById('cmbProductStatus').disabled = true;                        
-                        }                 
-                    }else{
-                          document.getElementById("txtImeis").value = "";
-                          document.getElementById("txtImeis").focus() ;
-                    } 
+                    cadena = cadena.substr(posInicio+1);
+                    sim = cadena;
+                    
+                    document.getElementById("almacen_desc_"+indice).value = almacen;
+                    document.getElementById("subintentario_desc_"+indice).value = subinventario;  
+                    document.getElementById("txtIdOrganitation_"+indice).value = organization;
+                    document.getElementById("imei_num_"+indice).value=imei;                    
+                    document.getElementById("txtImeis").value = "";                        
+                    document.getElementById("txtSims").value = sim;                        
+                                            
+                    if( bFlag == true ){                        
+                        document.getElementById("hdnProductStatus").value = document.getElementById('cmbProductStatus').value;
+                        document.getElementById('cmbProductStatus').disabled = true;                        
+                    }                 
+                    
 
                     
                    
